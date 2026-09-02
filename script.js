@@ -12,7 +12,7 @@ const zoomThresholdsDisappear = isMobile ?
     {'b': -2, 'd': 0, 'e': 2} :
     {'b': -1, 'd': 1, 'e': 3};
 const fontSizeThresholds = isMobile ?
-    {'b': '8vw', 'd': '4vw', 'e': '4vw'} :
+    {'b': '4vw', 'd': '2vw', 'e': '2vw'} :
     {'b': '2vw', 'd': '1vw', 'e': '1vw'};
 const ICON_RANKS = ['d', 'e'];
 const ICON_SCALE = 1.5;
