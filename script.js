@@ -1,7 +1,6 @@
 const mapSize = 65536;
 const bounds = [[0, 0], [mapSize, mapSize]];
 
-// 현재 선택된 언어를 저장할 변수
 let currentLang = 'lo';
 let locationData = [];
 
@@ -13,8 +12,45 @@ const zoomThresholdsDisappear = isMobile ?
     {'a': -3, 'b': -1.75, 'c': -0.5, 'd': 0.75, 'e': 2} :
     {'a': -2, 'b': -0.75, 'c': 0.5, 'd': 1.75, 'e': 3};
 const fontSizeThresholds = isMobile ?
-    {'a': '4vw', 'b': '3.6vw', 'c': '3vw', 'd': '2.4vw', 'e': '2vw'} :
-    {'a': '2vw', 'b': '1.8vw', 'c': '1.5vw', 'd': '1.2vw', 'e': '1vw'};
+    {'a': '5vw', 'b': '4vw', 'c': '3vw', 'd': '2vw', 'e': '2vw'} :
+    {'a': '2.5vw', 'b': '2vw', 'c': '1.5vw', 'd': '1vw', 'e': '1vw'};
+const ICON_RANKS = ['d', 'e'];
+const ICON_SCALE = 1.5;
+
+function vwToPx(vwString) {
+    return (parseFloat(vwString) / 100) * window.innerWidth;
+}
+
+const ICON_LIBRARY = {
+    park: {
+        color: '#4CAF50',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/park.svg" x="8" y="8" width="32" height="32" />
+        </svg>`
+    },
+    hospital: {
+        color: '#F44336',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/hospital.svg" x="8" y="8" width="32" height="32" />
+        </svg>`
+    },
+    location: {
+        color: '#9E9E9E',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/location.svg" x="8" y="8" width="32" height="32" />
+        </svg>`
+    },
+    account: {
+        color: '#9E9E9E',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/account.svg" x="8" y="8" width="32" height="32" />
+        </svg>`
+    },
+};
 
 const map = isMobile ?
     L.map('map', {
@@ -36,7 +72,7 @@ const map = isMobile ?
         maxBoundsViscosity: 1.0
     });
 
-L.imageOverlay('Sle_map.svg', bounds).addTo(map);
+L.imageOverlay('Sluqecu_map.svg', bounds).addTo(map);
 map.fitBounds(bounds);
 map.setView([44000, 29000], 0);
 
@@ -50,14 +86,36 @@ function renderMarkers() {
     locationData.forEach(loc => {
         if (currentZoom >= zoomThresholds[loc.rank] && currentZoom <= zoomThresholdsDisappear[loc.rank]) {
             const text = loc.names[currentLang] || loc.names['en'];
-            
             const fontSize = fontSizeThresholds[loc.rank];
+
+            let html, iconSize, iconAnchor;
+
+            if (loc.icon && ICON_RANKS.includes(loc.rank)) {
+                // icon이 지정된 d, e 위계: 아이콘을 좌표에 놓고 텍스트는 오른쪽으로
+                const iconDef = ICON_LIBRARY[loc.icon] || ICON_LIBRARY.default;
+                const iconPx = Math.round(vwToPx(fontSize) * ICON_SCALE);
+                const halfIcon = iconPx / 2;
+
+                html = `
+                    <div class="map-label-row">
+                        <span class="map-icon" style="width:${iconPx}px; height:${iconPx}px; color:${iconDef.color};">${iconDef.svg}</span>
+                        <span class="map-label-text" style="font-size:${fontSize}; color:${iconDef.color};">${text}</span>
+                    </div>
+                `;
+                iconSize = [300, 40];
+                iconAnchor = [halfIcon, 20];
+            } else {
+                // icon이 없으면 기존처럼 좌표 중심에 텍스트 (연한 회색)
+                html = `<div style="font-size: ${fontSize}">${text}</div>`;
+                iconSize = [200, 40];
+                iconAnchor = [100, 10];
+            }
 
             const textIcon = L.divIcon({
                 className: 'map-label',
-                html: `<div style="font-size: ${fontSize}">${text}</div>`,
-                iconSize: [200, 40],
-                iconAnchor: [100, 10]
+                html: html,
+                iconSize: iconSize,
+                iconAnchor: iconAnchor
             });
 
             L.marker(loc.coords, { icon: textIcon }).addTo(markerLayer);
@@ -95,12 +153,6 @@ fetch('locations.json')
         locationData = data;
         renderMarkers();
     });
-
-// 좌표 표시 로직
-const coordsDisplay = document.getElementById('coords-display');
-map.on('mousemove', function(e) {
-    coordsDisplay.innerHTML = `${Math.round(e.latlng.lat)}, ${Math.round(e.latlng.lng)}`;
-});
 
 /*
 // 좌표 클립보드 복사
