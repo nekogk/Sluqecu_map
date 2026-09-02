@@ -4,16 +4,16 @@ const bounds = [[0, 0], [mapSize, mapSize]];
 let currentLang = 'lo';
 let locationData = [];
 
-const isMobile = window.innerWidth < 1920;
+const isMobile = window.innerWidth < 768;
 const zoomThresholds = isMobile ? 
-    {'a': -6, 'b': -4.75, 'c': -3.5, 'd': -2.25, 'e': -1} : 
-    {'a': -5, 'b': -3.75, 'c': -2.5, 'd': -1.25, 'e': 0};
+    {'b': -6, 'd': -4, 'e': -2} : 
+    {'b': -5, 'd': -3, 'e': -1};
 const zoomThresholdsDisappear = isMobile ?
-    {'a': -3, 'b': -1.75, 'c': -0.5, 'd': 0.75, 'e': 2} :
-    {'a': -2, 'b': -0.75, 'c': 0.5, 'd': 1.75, 'e': 3};
+    {'b': -2, 'd': 0, 'e': 2} :
+    {'b': -1, 'd': 1, 'e': 3};
 const fontSizeThresholds = isMobile ?
-    {'a': '10vw', 'b': '8vw', 'c': '6vw', 'd': '4vw', 'e': '4vw'} :
-    {'a': '2.5vw', 'b': '2vw', 'c': '1.5vw', 'd': '1vw', 'e': '1vw'};
+    {'b': '8vw', 'd': '4vw', 'e': '4vw'} :
+    {'b': '2vw', 'd': '1vw', 'e': '1vw'};
 const ICON_RANKS = ['d', 'e'];
 const ICON_SCALE = 1.5;
 
