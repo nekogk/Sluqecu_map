@@ -4,7 +4,7 @@ const bounds = [[0, 0], [mapSize, mapSize]];
 let currentLang = 'lo';
 let locationData = [];
 
-const isMobile = window.innerWidth < 768;
+const isMobile = window.innerWidth < 1920;
 const zoomThresholds = isMobile ? 
     {'a': -6, 'b': -4.75, 'c': -3.5, 'd': -2.25, 'e': -1} : 
     {'a': -5, 'b': -3.75, 'c': -2.5, 'd': -1.25, 'e': 0};
