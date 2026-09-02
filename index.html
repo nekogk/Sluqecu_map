@@ -101,21 +101,6 @@
         .control-btn:hover { background: #ffffff; }
         .control-btn.active { background: #ffffff; }
 
-        /* 확대/축소 버튼 그룹 */
-        .zoom-group {
-            display: flex;
-            gap: 5px;
-        }
-        .zoom-btn {
-            font-family: 'Pretendard', sans-serif;
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         /* 1. 로포나어  */
         body.lang-lo, .lang-lo .map-label {
             font-family: 'Rusimez sans', 'Microsoft YaHei', sans-serif;
@@ -133,10 +118,6 @@
         <div class="lang-group">
             <button class="control-btn active" onclick="changeLang('lo', this)" style="font-family: 'Microsoft YaHei', sans-serif;">联邦語</button>
             <button class="control-btn" onclick="changeLang('en', this)">English</button>
-        </div>
-        <div class="zoom-group">
-            <button class="control-btn zoom-btn" onclick="map.zoomIn(1/4)">+</button>
-            <button class="control-btn zoom-btn" onclick="map.zoomOut(1/4)">-</button>
         </div>
     </div>
     <div id="map"></div>
