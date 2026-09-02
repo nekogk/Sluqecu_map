@@ -12,17 +12,13 @@ const zoomThresholdsDisappear = isMobile ?
     {'a': -3, 'b': -1.75, 'c': -0.5, 'd': 0.75, 'e': 2} :
     {'a': -2, 'b': -0.75, 'c': 0.5, 'd': 1.75, 'e': 3};
 const fontSizeThresholds = isMobile ?
-    {'a': '5vw', 'b': '4vw', 'c': '3vw', 'd': '2vw', 'e': '2vw'} :
+    {'a': '10vw', 'b': '8vw', 'c': '6vw', 'd': '4vw', 'e': '4vw'} :
     {'a': '2.5vw', 'b': '2vw', 'c': '1.5vw', 'd': '1vw', 'e': '1vw'};
 const ICON_RANKS = ['d', 'e'];
 const ICON_SCALE = 1.5;
 
 function vwToPx(vwString) {
-    if (isMobile) {
-        return (parseFloat(vwString) / 50) * window.innerWidth
-    } else {
         return (parseFloat(vwString) / 100) * window.innerWidth;
-    }
 }
 
 const ICON_LIBRARY = {
