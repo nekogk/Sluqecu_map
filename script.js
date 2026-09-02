@@ -6,10 +6,10 @@ let locationData = [];
 
 const isMobile = window.innerWidth < 768;
 const zoomThresholds = isMobile ? 
-    {'b': -4, 'd': -2, 'e': 0} : 
+    {'b': -6, 'd': -4, 'e': -2} : 
     {'b': -5, 'd': -3, 'e': -1};
 const zoomThresholdsDisappear = isMobile ?
-    {'b': 0, 'd': 2, 'e': 4} :
+    {'b': -2, 'd': 0, 'e': 4} :
     {'b': -1, 'd': 1, 'e': 3};
 const fontSizeThresholds = isMobile ?
     {'b': '4vw', 'd': '2vw', 'e': '2vw'} :
