@@ -18,7 +18,11 @@ const ICON_RANKS = ['d', 'e'];
 const ICON_SCALE = 1.5;
 
 function vwToPx(vwString) {
-    return (parseFloat(vwString) / 100) * window.innerWidth;
+    if (isMobile) {
+        return (parseFloat(vwString) / 50) * window.innerWidth
+    } else {
+        return (parseFloat(vwString) / 100) * window.innerWidth;
+    }
 }
 
 const ICON_LIBRARY = {
