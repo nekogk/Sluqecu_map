@@ -4,21 +4,14 @@ const bounds = [[0, 0], [mapSize, mapSize]];
 let currentLang = 'lo';
 let locationData = [];
 
-const isMobile = window.innerWidth < 768;
-const zoomThresholds = isMobile ? 
-    {'b': -6, 'd': -4, 'e': -2} : 
-    {'b': -5, 'd': -3, 'e': -1};
-const zoomThresholdsDisappear = isMobile ?
-    {'b': -2, 'd': 0, 'e': 4} :
-    {'b': -1, 'd': 1, 'e': 3};
-const fontSizeThresholds = isMobile ?
-    {'b': '4vw', 'd': '2vw', 'e': '2vw'} :
-    {'b': '2vw', 'd': '1vw', 'e': '1vw'};
+const zoomThresholds = {'b': -4, 'd': -2, 'e': 0};
+const zoomThresholdsDisappear = {'b': 0, 'd': 2, 'e': 4};
+const fontSizeThresholds = {'b': '4vh', 'd': '2vh', 'e': '2vh'};
 const ICON_RANKS = ['d', 'e'];
 const ICON_SCALE = 1.5;
 
-function vwToPx(vwString) {
-        return (parseFloat(vwString) / 100) * window.innerWidth;
+function vhToPx(vhString) {
+        return (parseFloat(vhString) / 100) * window.innerHeight;
 }
 
 const ICON_LIBRARY = {
@@ -52,21 +45,11 @@ const ICON_LIBRARY = {
     },
 };
 
-const map = isMobile ?
-    L.map('map', {
+const map = L.map('map', {
         crs: L.CRS.Simple,
         zoomSnap: 1/4,
-        minZoom: -6,
-        maxZoom: 2,
-        zoomControl: false,
-        maxBounds: bounds,
-        maxBoundsViscosity: 1.0
-    }) :
-    L.map('map', {
-        crs: L.CRS.Simple,
-        zoomSnap: 1/4,
-        minZoom: -5,
-        maxZoom: 3,
+        minZoom: -4,
+        maxZoom: 4,
         zoomControl: false,
         maxBounds: bounds,
         maxBoundsViscosity: 1.0
@@ -93,7 +76,7 @@ function renderMarkers() {
             if (loc.icon && ICON_RANKS.includes(loc.rank)) {
                 // icon이 지정된 d, e 위계: 아이콘을 좌표에 놓고 텍스트는 오른쪽으로
                 const iconDef = ICON_LIBRARY[loc.icon] || ICON_LIBRARY.default;
-                const iconPx = Math.round(vwToPx(fontSize) * ICON_SCALE);
+                const iconPx = Math.round(vhToPx(fontSize) * ICON_SCALE);
                 const halfIcon = iconPx / 2;
 
                 html = `
