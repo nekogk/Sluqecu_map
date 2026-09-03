@@ -50,6 +50,20 @@ const ICON_LIBRARY = {
             <use href="icon/account.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
+    atm: {
+        color: '#9E9E9E',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/atm.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    business: {
+        color: '#9E9E9E',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/business.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
     subway: {
         color: '#2196F3',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
@@ -62,6 +76,13 @@ const ICON_LIBRARY = {
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <rect x="4" y="4" width="40" height="40" rx="10" ry="10" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/train.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    bus: {
+        color: '#2196F3',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <rect x="4" y="4" width="40" height="40" rx="10" ry="10" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/bus.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     library: {
