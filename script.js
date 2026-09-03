@@ -19,30 +19,92 @@ const ICON_LIBRARY = {
         color: '#4CAF50',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
-            <use href="icon/park.svg" x="8" y="8" width="32" height="32" />
+            <use href="icon/park.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     hospital: {
         color: '#F44336',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
-            <use href="icon/hospital.svg" x="8" y="8" width="32" height="32" />
+            <use href="icon/hospital.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
-    location: {
+    place: {
         color: '#9E9E9E',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
-            <use href="icon/location.svg" x="8" y="8" width="32" height="32" />
+            <use href="icon/place.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    castle: {
+        color: '#9E9E9E',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/castle.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     account: {
         color: '#9E9E9E',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
-            <use href="icon/account.svg" x="8" y="8" width="32" height="32" />
+            <use href="icon/account.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
+    subway: {
+        color: '#2196F3',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <rect x="4" y="4" width="40" height="40" rx="10" ry="10" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/subway.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    train: {
+        color: '#2196F3',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <rect x="4" y="4" width="40" height="40" rx="10" ry="10" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/train.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    library: {
+        color: '#795548',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/library.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    school: {
+        color: '#795548',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/school.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    museum: {
+        color: '#E91E63',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/museum.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    theater: {
+        color: '#E91E63',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/theater.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    mall: {
+        color: '#FFEB3B',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/mall.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    default: {
+        color: '#8a8a8a',
+        svg: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="8" fill="currentColor"/>
+        </svg>`
+    }
 };
 
 const map = L.map('map', {
@@ -137,7 +199,7 @@ fetch('locations.json')
         renderMarkers();
     });
 
-/*
+
 // 좌표 클립보드 복사
 map.on('click', function(e) {
     // 1. 좌표 추출 및 반올림
@@ -156,4 +218,3 @@ map.on('click', function(e) {
         console.error('복사 실패:', err);
     });
 });
-*/
