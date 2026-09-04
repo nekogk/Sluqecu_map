@@ -65,7 +65,7 @@ const ICON_LIBRARY = {
         </svg>`
     },
     subway: {
-        color: '#2196F3',
+        color: '#42A5F5',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <rect x="4" y="4" width="40" height="40" rx="10" ry="10" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/subway.svg" x="10" y="10" width="28" height="28" />
