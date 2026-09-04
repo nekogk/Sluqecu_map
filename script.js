@@ -120,6 +120,13 @@ const ICON_LIBRARY = {
             <use href="icon/mall.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
+    restaurant: {
+        color: '#FFEE58',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/restaurant.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
     parking: {
         color: '#42A5F5',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
