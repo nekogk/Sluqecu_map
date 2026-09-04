@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,22 +10,22 @@
         <style>
         /* 1. 로컬 폰트 파일 등록 */
         @font-face {
-            font-family: 'Pretendard';
-            src: url('Pretendard-RegularPretendard-Regular.otf');
+            font-family: 'La';
+            src: url('font/Pretendard-RegularPretendard-Regular.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
         }
 
         @font-face {
-            font-family: 'Noto Sans SC';
-            src: url('NotoSansSC-Regular.ttf');
+            font-family: 'Hz';
+            src: url('font/NotoSansSC-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
         @font-face {
-            font-family: 'Rusimez sans';
-            src: url('icon/RusimezSans.otf');
+            font-family: 'Rm';
+            src: url('font/RusimezSans.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
         }
@@ -101,7 +101,7 @@
 
         /* 공통 버튼 스타일 */
         .control-btn {
-            font-family: 'Pretendard', 'Pretendard JP' sans-serif;
+            font-family: 'La' sans-serif;
             background: #cccccc;
             border: 1px solid #222222;
             padding: 8px 12px;
@@ -115,12 +115,12 @@
 
         /* 1. 로포나어  */
         body.lang-lo, .lang-lo .map-label {
-            font-family: 'Rusimez sans', 'Noto Sans SC', sans-serif;
+            font-family: 'Hz', 'Rm', sans-serif;
         }
 
         /* 2. 한국어 및 영어 */
         body.lang-en, .lang-en .map-label {
-            font-family: 'Pretendard', sans-serif;
+            font-family: 'La', sans-serif;
         }
 
     </style>
@@ -128,7 +128,7 @@
 <body>
     <div id="custom-controls">
         <div class="lang-group">
-            <button class="control-btn active" onclick="changeLang('lo', this)" style="font-family: 'Noto Sans SC', sans-serif;">联邦語</button>
+            <button class="control-btn active" onclick="changeLang('lo', this)" style="font-family: 'Hz', sans-serif;">联邦語</button>
             <button class="control-btn" onclick="changeLang('en', this)">English</button>
         </div>
     </div>
