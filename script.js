@@ -16,49 +16,49 @@ function vhToPx(vhString) {
 
 const ICON_LIBRARY = {
     park: {
-        color: '#4CAF50',
+        color: '#66BB6A',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/park.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
+    attractions: {
+        color: '#66BB6A',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/attractions.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    square: {
+        color: '#66BB6A',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/square.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
     hospital: {
-        color: '#F44336',
+        color: '#EF5350',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/hospital.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
-    place: {
-        color: '#9E9E9E',
-        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
-            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
-            <use href="icon/place.svg" x="10" y="10" width="28" height="28" />
-        </svg>`
-    },
-    castle: {
-        color: '#9E9E9E',
-        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
-            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
-            <use href="icon/castle.svg" x="10" y="10" width="28" height="28" />
-        </svg>`
-    },
     account: {
-        color: '#9E9E9E',
+        color: '#BDBDBD',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/account.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     atm: {
-        color: '#9E9E9E',
+        color: '#BDBDBD',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/atm.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     business: {
-        color: '#9E9E9E',
+        color: '#BDBDBD',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/business.svg" x="10" y="10" width="28" height="28" />
@@ -72,52 +72,80 @@ const ICON_LIBRARY = {
         </svg>`
     },
     train: {
-        color: '#2196F3',
+        color: '#42A5F5',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <rect x="4" y="4" width="40" height="40" rx="10" ry="10" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/train.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     bus: {
-        color: '#2196F3',
+        color: '#42A5F5',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <rect x="4" y="4" width="40" height="40" rx="10" ry="10" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/bus.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     library: {
-        color: '#795548',
+        color: '#8D6E63',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/library.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     school: {
-        color: '#795548',
+        color: '#8D6E63',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/school.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     museum: {
-        color: '#E91E63',
+        color: '#EC407A',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/museum.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     theater: {
-        color: '#E91E63',
+        color: '#EC407A',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/theater.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     mall: {
-        color: '#FFEB3B',
+        color: '#FFEE58',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/mall.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    parking: {
+        color: '#42A5F5',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/parking.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    star: {
+        color: '#7E57C2',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/star.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    castle: {
+        color: '#7E57C2',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/castle.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    temple: {
+        color: '#7E57C2',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/temple.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     default: {
