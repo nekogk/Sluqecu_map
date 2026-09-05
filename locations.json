@@ -259,7 +259,7 @@
   {"id": "dechi_railroad_1046", "rank": "b", "icon": "subway", "coords": [38640, 26071], "names": {"lo": "求茶駅", "en": "Memutu Station"}},
   {"id": "dechi_railroad_1047", "rank": "b", "icon": "subway", "coords": [37038, 27931], "names": {"lo": "旧津駅", "en": "Righeju Station"}},
   {"id": "dechi_railroad_1048", "rank": "b", "icon": "subway", "coords": [35686, 29905], "names": {"lo": "能産駅", "en": "Rechiseca Station"}},
-  {"id": "dechi_railroad_1049", "rank": "b", "icon": "subway", "coords": [35122, 31809], "names": {"lo": "持津駅", "en": "Soshiju Station"}},
+  {"id": "dechi_railroad_1049", "rank": "b", "icon": "subway", "coords": [35146, 31768], "names": {"lo": "持津駅", "en": "Soshiju Station"}},
   {"id": "dechi_railroad_1050", "rank": "b", "icon": "subway", "coords": [34700, 33963], "names": {"lo": "延南駅", "en": "Lano Station"}},
   {"id": "dechi_railroad_1051", "rank": "b", "icon": "subway", "coords": [33228, 35490], "names": {"lo": "乗怠駅", "en": "Tozeshita Station"}},
 
