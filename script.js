@@ -4,9 +4,10 @@ const bounds = [[0, 0], [mapSize, mapSize]];
 let currentLang = 'lo';
 let locationData = [];
 
-const zoomThresholds = {'w': -4, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
-const zoomThresholdsDisappear = {'w': 0, 'a': 2, 'b': 2.5, 'c': 3, 'd': 3.5, 'e': 4};
-const fontSizeThresholds = {'w': '4vh', 'a': '2vh', 'b': '2vh', 'c': '2vh', 'd': '2vh', 'e': '2vh'};
+const zoomThresholds = {'w': -4, 's': -3, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
+const zoomThresholdsDisappear = {'w': 0, 's': 1, 'a': 2, 'b': 2.5, 'c': 3, 'd': 3.5, 'e': 4};
+const fontSizeThresholds = {'w': '3vh', 's': '2.5vh', 'a': '2vh', 'b': '2vh', 'c': '2vh', 'd': '2vh', 'e': '2vh'};
+const zIndexRanks = {'w': 1000, 's': 700, 'a': 400, 'b': 300, 'c': 200, 'd': 100, 'e': 0};
 const ICON_RANKS = ['a', 'b', 'c', 'd', 'e'];
 const ICON_SCALE = 1.5;
 
@@ -179,10 +180,9 @@ map.setView([44000, 29000], 0);
 
 let markerLayer = L.layerGroup().addTo(map);
 
-// 2. 마커 렌더링 함수 수정
 function renderMarkers() {
     markerLayer.clearLayers();
-    const currentZoom = map.getZoom(); // 현재 지도의 줌 레벨 가져오기
+    const currentZoom = map.getZoom();
 
     locationData.forEach(loc => {
         if (currentZoom >= zoomThresholds[loc.rank] && currentZoom <= zoomThresholdsDisappear[loc.rank]) {
@@ -192,7 +192,6 @@ function renderMarkers() {
             let html, iconSize, iconAnchor;
 
             if (loc.icon && ICON_RANKS.includes(loc.rank)) {
-                // icon이 지정된 d, e 위계: 아이콘을 좌표에 놓고 텍스트는 오른쪽으로
                 const iconDef = ICON_LIBRARY[loc.icon] || ICON_LIBRARY.default;
                 const iconPx = Math.round(vhToPx(fontSize) * ICON_SCALE);
                 const halfIcon = iconPx / 2;
@@ -206,7 +205,6 @@ function renderMarkers() {
                 iconSize = [300, 40];
                 iconAnchor = [halfIcon, 20];
             } else {
-                // icon이 없으면 기존처럼 좌표 중심에 텍스트 (연한 회색)
                 html = `<div style="font-size: ${fontSize}">${text}</div>`;
                 iconSize = [200, 40];
                 iconAnchor = [100, 10];
@@ -219,7 +217,13 @@ function renderMarkers() {
                 iconAnchor: iconAnchor
             });
 
-            L.marker(loc.coords, { icon: textIcon }).addTo(markerLayer);
+            // zIndexOffset 옵션을 추가해서 위계 설정
+            const offset = zIndexRanks[loc.rank] || 0;
+
+            L.marker(loc.coords, { 
+                icon: textIcon,
+                zIndexOffset: offset 
+            }).addTo(markerLayer);
         }
     });
 }
