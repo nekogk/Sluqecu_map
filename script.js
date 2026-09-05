@@ -258,16 +258,16 @@ fetch('locations.json')
 
 // 좌표 클립보드 복사
 map.on('click', function(e) {
-    // 1. 좌표 추출 및 반올림
+    if (!e.originalEvent.shiftKey) {
+        return;
+    }
+
     const y = Math.round(e.latlng.lat);
     const x = Math.round(e.latlng.lng);
     
-    // 2. 복사할 문자열 형식 지정 (예: [32768, 32768])
     const coordString = `[${y}, ${x}]`;
     
-    // 3. 클립보드로 복사
     navigator.clipboard.writeText(coordString).then(() => {
-        // 4. 복사 성공 시 사용자에게 알림 (간단한 alert 혹은 커스텀 UI)
         console.log('복사된 좌표:', coordString);
         showToast(`좌표 ${coordString}가 복사되었습니다!`);
     }).catch(err => {
