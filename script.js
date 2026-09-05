@@ -4,10 +4,10 @@ const bounds = [[0, 0], [mapSize, mapSize]];
 let currentLang = 'lo';
 let locationData = [];
 
-const zoomThresholds = {'w': -3, 's': -2.5, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
-const zoomThresholdsDisappear = {'w': 1, 's': 1.5, 'a': 2, 'b': 2.5, 'c': 3, 'd': 3.5, 'e': 4};
-const fontSizeThresholds = {'w': '3vh', 's': '2.5vh', 'a': '2vh', 'b': '2vh', 'c': '2vh', 'd': '2vh', 'e': '2vh'};
-const zIndexRanks = {'w': 1000, 's': 700, 'a': 400, 'b': 300, 'c': 200, 'd': 100, 'e': 0};
+const zoomThresholds = {'m': -4, 'w': -3, 's': -2.5, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
+const zoomThresholdsDisappear = {'m': 0, 'w': 1, 's': 1.5, 'a': 2, 'b': 2.5, 'c': 3, 'd': 3.5, 'e': 4};
+const fontSizeThresholds = {'m': '4vh', 'w': '3vh', 's': '2.5vh', 'a': '2vh', 'b': '2vh', 'c': '2vh', 'd': '2vh', 'e': '2vh'};
+const zIndexRanks = {'m':1000, 'w': 800, 's': 600, 'a': 400, 'b': 300, 'c': 200, 'd': 100, 'e': 0};
 const ICON_RANKS = ['a', 'b', 'c', 'd', 'e'];
 const ICON_SCALE = 1.5;
 
