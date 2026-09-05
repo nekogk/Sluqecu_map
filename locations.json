@@ -219,7 +219,7 @@
 
   {"id": "sluqecu_resexwa", "rank": "w", "coords": [50629, 26707], "names": {"lo": "仕湾区", "en": "Resexwa Ward"}},
   {"id": "sluqecu_resexwa_miqujiter03", "rank": "s", "coords": [49949, 27238], "names": {"lo": "蜜銅三番街", "en": "Miqujiter 3st Street"}},
-  {"id": "sluqecu_resexwa_miqujiter04", "rank": "s", "coords": [50642, 28079], "names": {"lo": "蜜銅四番街", "en": "Miqujiter 4nd Street"}},
+  {"id": "sluqecu_resexwa_miqujiter04", "rank": "s", "coords": [50642, 28079], "names": {"lo": "蜜銅四番街", "en": "Miqujiter 4th Street"}},
   {"id": "sluqecu_resexwa_rewereshu", "rank": "s", "coords": [49226, 28335], "names": {"lo": "偉袖街", "en": "Rewereshu Street"}},
   {"id": "sluqecu_resexwa_rewereshu_01_01", "rank": "a", "icon": "park", "coords": [49305, 28090], "names": {"lo": "公園", "en": "Shose Park"}},
   {"id": "sluqecu_resexwa_rewereshu_01_03", "rank": "c", "icon": "star", "coords": [49133, 27918], "names": {"lo": "仮㒱銅像", "en": "Statue of Psudosomnia"}},
