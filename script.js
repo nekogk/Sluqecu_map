@@ -4,10 +4,10 @@ const bounds = [[0, 0], [mapSize, mapSize]];
 let currentLang = 'lo';
 let locationData = [];
 
-const zoomThresholds = {'b': -4, 'c': -2, 'd': -1, 'e': 0};
-const zoomThresholdsDisappear = {'b': 0, 'c': 2, 'd': 3, 'e': 4};
-const fontSizeThresholds = {'b': '4vh', 'c': '2vh', 'd': '2vh', 'e': '2vh'};
-const ICON_RANKS = ['c', 'd', 'e'];
+const zoomThresholds = {'w': -4, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
+const zoomThresholdsDisappear = {'w': 0, 'a': 2, 'b': 2.5, 'c': 3, 'd': 3.5, 'e': 4};
+const fontSizeThresholds = {'w': '4vh', 'a': '2vh', 'b': '2vh', 'c': '2vh', 'd': '2vh', 'e': '2vh'};
+const ICON_RANKS = ['a', 'b', 'c', 'd', 'e'];
 const ICON_SCALE = 1.5;
 
 function vhToPx(vhString) {
