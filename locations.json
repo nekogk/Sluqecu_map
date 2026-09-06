@@ -426,7 +426,7 @@
   {"id": "sluqecu_metro_350", "rank": "c", "icon": "subway", "coords": [44610, 27590], "names": {"lo": "美雨駅", "en": "Nijese Station"}},
   {"id": "sluqecu_metro_351", "rank": "b", "icon": "subway", "coords": [44554, 28002], "names": {"lo": "州庁駅", "en": "State Capitol Station"}},
   {"id": "sluqecu_metro_353", "rank": "b", "icon": "subway", "coords": [44277, 29452], "names": {"lo": "初地公園駅", "en": "Hatarechetu Park Station"}},
-  {"id": "sluqecu_metro_354", "rank": "c", "icon": "subway", "coords": [44124, 30170], "names": {"lo": "連邦議会駅", "en": "Federal Capitol Station"}},
+  {"id": "sluqecu_metro_354", "rank": "c", "icon": "subway", "coords": [44124, 30170], "names": {"lo": "联邦議会駅", "en": "Federal Capitol Station"}},
   {"id": "sluqecu_metro_355", "rank": "b", "icon": "subway", "coords": [44059, 30736], "names": {"lo": "中法院駅", "en": "Central Court Station"}},
   {"id": "sluqecu_metro_356", "rank": "c", "icon": "subway", "coords": [43979, 31372], "names": {"lo": "搾尺駅", "en": "Mizaqec Station"}},
   {"id": "sluqecu_metro_357", "rank": "b", "icon": "subway", "coords": [43944, 32050], "names": {"lo": "上栄駅", "en": "Pesamu Station"}},
