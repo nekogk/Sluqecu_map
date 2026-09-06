@@ -298,6 +298,7 @@
   {"id": "dechi_railroad_2063", "rank": "b", "icon": "subway", "coords": [25508, 21473], "names": {"lo": "浅浦駅", "en": "Seshisefu Station"}},
   {"id": "dechi_railroad_2064", "rank": "b", "icon": "subway", "coords": [24431, 23152], "names": {"lo": "春涙駅", "en": "Ritesechi Station"}},
 
+  {"id": "dechi_railroad_2148", "rank": "b", "icon": "subway", "coords": [48469, 30211], "names": {"lo": "八蓮駅", "en": "Sobecalye Station"}},
   {"id": "dechi_railroad_2149", "rank": "b", "icon": "subway", "coords": [47239, 30829], "names": {"lo": "説短駅", "en": "Ejibica Station"}},
 
   {"id": "dechi_railroad_2239", "rank": "b", "icon": "subway", "coords": [50639, 17348], "names": {"lo": "平海北駅", "en": "Begheseme-Rube Station"}},
@@ -553,8 +554,8 @@
 
   {"id": "sluqecu_metro_851", "rank": "c", "icon": "subway", "coords": [36086, 19868], "names": {"lo": "危身駅", "en": "Dacarebo Station"}},
   {"id": "sluqecu_metro_852", "rank": "b", "icon": "subway", "coords": [35809, 21098], "names": {"lo": "駅", "en": "Segowha Station"}},
-  {"id": "sluqecu_metro_854", "rank": "b", "icon": "subway", "coords": [36345, 22777], "names": {"lo": "濃切駅", "en": "Sedachi Station"}},
-  {"id": "sluqecu_metro_855", "rank": "c", "icon": "subway", "coords": [36826, 23172], "names": {"lo": "新濃切駅", "en": "Zji-Sedachi Station"}},
+  {"id": "sluqecu_metro_854", "rank": "b", "icon": "subway", "coords": [36345, 22777], "names": {"lo": "濃切駅", "en": "Senesa Station"}},
+  {"id": "sluqecu_metro_855", "rank": "c", "icon": "subway", "coords": [36826, 23172], "names": {"lo": "新濃切駅", "en": "Zji-Senesa Station"}},
   {"id": "sluqecu_metro_856", "rank": "c", "icon": "subway", "coords": [37306, 23780], "names": {"lo": "埋売駅", "en": "Calima Station"}},
   {"id": "sluqecu_metro_859", "rank": "c", "icon": "subway", "coords": [38746, 27262], "names": {"lo": "李栄駅", "en": "Muzmu Station"}},
   {"id": "sluqecu_metro_861", "rank": "c", "icon": "subway", "coords": [38422, 28610], "names": {"lo": "庶秘駅", "en": "Zmifaza Station"}},
@@ -597,12 +598,21 @@
   {"id": "sluqecu_metro_1054", "rank": "b", "icon": "subway", "coords": [31787, 31704], "names": {"lo": "褐牽駅", "en": "Igesoze Station"}},
   {"id": "sluqecu_metro_1056", "rank": "c", "icon": "subway", "coords": [30558, 32539], "names": {"lo": "色乳駅", "en": "Danaxi Station"}},
 
+  {"id": "sluqecu_metro_1129", "rank": "b", "icon": "subway", "coords": [51148, 27036], "names": {"lo": "態莫駅", "en": "Remari Station"}},
+  {"id": "sluqecu_metro_1131", "rank": "c", "icon": "subway", "coords": [50143, 27698], "names": {"lo": "散漠駅", "en": "Pismo Station"}},
   {"id": "sluqecu_metro_1132", "rank": "c", "icon": "subway", "coords": [49764, 28502], "names": {"lo": "公園駅", "en": "Shose Park Station"}},
+  {"id": "sluqecu_metro_1133", "rank": "c", "icon": "subway", "coords": [49414, 29089], "names": {"lo": "気西涯駅", "en": "Shichiner Station"}},
+  {"id": "sluqecu_metro_1134", "rank": "c", "icon": "subway", "coords": [49042, 29595], "names": {"lo": "入江駅", "en": "Rubigo Station"}},
+  {"id": "sluqecu_metro_1136", "rank": "c", "icon": "subway", "coords": [48310, 31016], "names": {"lo": "花南駅", "en": "Whano Station"}},
+  {"id": "sluqecu_metro_1139", "rank": "c", "icon": "subway", "coords": [46776, 32184], "names": {"lo": "刈井駅", "en": "Jibidazujer Station"}},
   {"id": "sluqecu_metro_1146", "rank": "b", "icon": "subway", "coords": [42430, 30588], "names": {"lo": "战刃駅", "en": "Sazedafu Station"}},
   {"id": "sluqecu_metro_1147", "rank": "b", "icon": "subway", "coords": [41771, 30487], "names": {"lo": "灰確駅", "en": "Yuwhocewho Station"}},
   {"id": "sluqecu_metro_1148", "rank": "c", "icon": "subway", "coords": [41335, 30303], "names": {"lo": "引益駅", "en": "Sogoho Station"}},
   {"id": "sluqecu_metro_1149", "rank": "b", "icon": "subway", "coords": [40911, 30359], "names": {"lo": "美琴公園駅", "en": "Nijere Park Station"}},
+  {"id": "sluqecu_metro_1151", "rank": "c", "icon": "subway", "coords": [39638, 30351], "names": {"lo": "十悲火駅", "en": "Jubipiwhe Station"}},
   {"id": "sluqecu_metro_1152", "rank": "b", "icon": "subway", "coords": [38993, 30485], "names": {"lo": "坐金駅", "en": "Maretube Station"}},
+  {"id": "sluqecu_metro_1154", "rank": "c", "icon": "subway", "coords": [38369, 31341], "names": {"lo": "丘雁駅", "en": "Tubennya Station"}},
+  {"id": "sluqecu_metro_1155", "rank": "c", "icon": "subway", "coords": [37708, 31383], "names": {"lo": "近耐駅", "en": "Jisajebi Station"}},
 
   {"id": "sluqecu_metro_1253", "rank": "b", "icon": "subway", "coords": [32341, 28090], "names": {"lo": "史公園駅", "en": "Historical Park Station"}},
   {"id": "sluqecu_metro_1255", "rank": "c", "icon": "subway", "coords": [31045, 27440], "names": {"lo": "長春駅", "en": "Sareriter Station"}},
