@@ -254,7 +254,8 @@
   {"id": "sluqecu_seshisefu", "rank": "w", "coords": [26500, 21000], "names": {"lo": "浅浦区", "en": "Seshisefu Ward"}},
   {"id": "sluqecu_miwha", "rank": "w", "coords": [26500, 6000], "names": {"lo": "㒱華区", "en": "Miwha Ward"}},
 
-  {"id": "dechi_railroad_1041", "rank": "b", "icon": "subway", "coords": [36555, 17754], "names": {"lo": "満港駅", "en": "Remasesha Station"}},
+  {"id": "dechi_railroad_1039", "rank": "b", "icon": "subway", "coords": [37600, 16474], "names": {"lo": "台駅", "en": "Cejicaji Station"}},
+  {"id": "dechi_railroad_1040", "rank": "b", "icon": "subway", "coords": [36580, 17076], "names": {"lo": "胞置駅", "en": "Rukosaz Station"}},
   {"id": "dechi_railroad_1042", "rank": "b", "icon": "subway", "coords": [36364, 18628], "names": {"lo": "満港電子域駅", "en": "Remasesha Digital Complex Station"}},
   {"id": "dechi_railroad_1043", "rank": "b", "icon": "subway", "coords": [36666, 22348], "names": {"lo": "沙河駅", "en": "Shisacheqa Station"}},
   {"id": "dechi_railroad_1045", "rank": "b", "icon": "subway", "coords": [38600, 25169], "names": {"lo": "清流駅", "en": "Birisebu Station"}},
@@ -294,7 +295,7 @@
   {"id": "dechi_railroad_2063", "rank": "b", "icon": "subway", "coords": [25508, 21473], "names": {"lo": "浅浦駅", "en": "Seshisefu Station"}},
   {"id": "dechi_railroad_2064", "rank": "b", "icon": "subway", "coords": [24431, 23152], "names": {"lo": "春涙駅", "en": "Ritesechi Station"}},
 
-  {"id": "dechi_railroad_2149", "rank": "b", "icon": "subway", "coords": [47220, 30843], "names": {"lo": "説短駅", "en": "Ejibica Station"}},
+  {"id": "dechi_railroad_2149", "rank": "b", "icon": "subway", "coords": [47239, 30829], "names": {"lo": "説短駅", "en": "Ejibica Station"}},
 
   {"id": "dechi_railroad_2239", "rank": "b", "icon": "subway", "coords": [50639, 17348], "names": {"lo": "平海北駅", "en": "Begheseme-Rube Station"}},
   {"id": "dechi_railroad_2242", "rank": "b", "icon": "subway", "coords": [46902, 18415], "names": {"lo": "駅", "en": "Yujaseme Station"}},
@@ -547,7 +548,6 @@
   {"id": "sluqecu_metro_762", "rank": "c", "icon": "subway", "coords": [25259, 3332], "names": {"lo": "㒱華公園駅", "en": "Miwha Park Station"}},
   {"id": "sluqecu_metro_763", "rank": "c", "icon": "subway", "coords": [26711, 1840], "names": {"lo": "㒱家駅", "en": "Rushimis Station"}},
 
-  {"id": "sluqecu_metro_848", "rank": "b", "icon": "subway", "coords": [36580, 17076], "names": {"lo": "胞置駅", "en": "Rukosaz Station"}},
   {"id": "sluqecu_metro_851", "rank": "c", "icon": "subway", "coords": [36086, 19868], "names": {"lo": "危身駅", "en": "Dacarebo Station"}},
   {"id": "sluqecu_metro_852", "rank": "b", "icon": "subway", "coords": [35809, 21098], "names": {"lo": "駅", "en": "Segowha Station"}},
   {"id": "sluqecu_metro_854", "rank": "b", "icon": "subway", "coords": [36345, 22777], "names": {"lo": "濃切駅", "en": "Sedachi Station"}},
@@ -586,6 +586,7 @@
   {"id": "sluqecu_metro_963", "rank": "b", "icon": "subway", "coords": [31750, 34816], "names": {"lo": "延南公園駅", "en": "Lano Park Station"}},
   {"id": "sluqecu_metro_968", "rank": "c", "icon": "subway", "coords": [28912, 37919], "names": {"lo": "沙花駅", "en": "Shisacale Station"}},
 
+  {"id": "sluqecu_metro_1037", "rank": "b", "icon": "subway", "coords": [37528, 17075], "names": {"lo": "麦徴駅", "en": "Jiseza Station"}},
   {"id": "sluqecu_metro_1048", "rank": "c", "icon": "subway", "coords": [34691, 27102], "names": {"lo": "管雷駅", "en": "Waghakopyo Station"}},
   {"id": "sluqecu_metro_1049", "rank": "c", "icon": "subway", "coords": [34419, 27979], "names": {"lo": "色橋駅", "en": "Dabamucha Station"}},
   {"id": "sluqecu_metro_1050", "rank": "b", "icon": "subway", "coords": [34176, 28748], "names": {"lo": "香衣駅", "en": "Haxi Station"}},
