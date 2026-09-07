@@ -1,9 +1,9 @@
 const bounds = [[0, 0], [65536, 65536]];
 const defaultColor = '#78909C';
-const zoomThresholds = {'m': -4, 'w': -3, 's': -2.5, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
-const zoomThresholdsDisappear = {'m': 0, 'w': 1, 's': 1.5, 'a': 2, 'b': 2.5, 'c': 3, 'd': 3.5, 'e': 4};
-const fontSizeThresholds = {'m': '5.4vh', 'w': '3.6vh', 's': '2.4vh', 'a': '1.6vh', 'b': '1.6vh', 'c': '1.6vh', 'd': '1.6vh', 'e': '1.6vh'};
-const zIndexRanks = {'m':1000, 'w': 800, 's': 600, 'a': 400, 'b': 300, 'c': 200, 'd': 100, 'e': 0};
+const zoomThresholds = {'w': -3, 's': -2.5, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
+const zoomThresholdsDisappear = {'w': 1, 's': 1.5, 'a': 2, 'b': 2.5, 'c': 3, 'd': 3.5, 'e': 4};
+const fontSizeThresholds = {'w': '3.6vh', 's': '2.4vh', 'a': '1.6vh', 'b': '1.6vh', 'c': '1.6vh', 'd': '1.6vh', 'e': '1.6vh'};
+const zIndexRanks = {'w': 1000, 's': 700, 'a': 400, 'b': 300, 'c': 200, 'd': 100, 'e': 0};
 const iconRanks = ['a', 'b', 'c', 'd', 'e'];
 
 const map = L.map('map', {
@@ -23,17 +23,17 @@ let ICON_LIBRARY = {};
 
 function buildIconSvg(def) {
     if (!def) {
-        return `<svg viewBox="0 0 10 10" width="10" height="10">
-            <circle cx="5" cy="5" r="9" fill="defaultColor" stroke="#222222" stroke-width="1" />
+        return `<svg viewBox="0 0 24 24" width="24" height="24">
+            <circle cx="12" cy="12" r="10" fill="defaultColor" stroke="#222222" stroke-width="2" />
         </svg>`;
     }
     const shapeMarkup = def.shape === 'rect'
-        ? `<rect x="1" y="1" width="8" height="8" rx="2" ry="2" fill="currentColor" stroke="#222222" stroke-width="1" />`
-        : `<circle cx="5" cy="5" r="4" fill="currentColor" stroke="#222222" stroke-width="1" />`;
+        ? `<rect x="2" y="2" width="20" height="20" rx="6" ry="6" fill="currentColor" stroke="#222222" stroke-width="2" />`
+        : `<circle cx="12" cy="12" r="10" fill="currentColor" stroke="#222222" stroke-width="2" />`;
 
-    return `<svg viewBox="0 0 10 10" width="10" height="10">
+    return `<svg viewBox="0 0 24 24" width="24" height="24">
         ${shapeMarkup}
-        <use href="icon/${def.icon}" x="2" y="2" width="6" height="6" />
+        <use href="icon/${def.icon}" x="5" y="5" width="14" height="14" />
     </svg>`;
 }
 
