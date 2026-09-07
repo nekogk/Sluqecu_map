@@ -125,7 +125,6 @@
   {"id": "sluqecu_righeju_jumez_05_01", "rank": "a", "icon": "park", "coords": [37528, 27669], "names": {"lo": "鉄道公園", "en": "Railway Park"}},
   {"id": "sluqecu_righeju_jumez_05_03", "rank": "d", "icon": "star", "coords": [37475, 27583], "names": {"lo": "観流台", "en": "Observation Platform"}},
   {"id": "sluqecu_righeju_kawacheqa_02_01", "rank": "a", "icon": "park", "coords": [37263, 29557], "names": {"lo": "曲川公園", "en": "Kawacheqa Park"}},
-  {"id": "sluqecu_righeju_kawacheqa_02_02", "rank": "c", "icon": "square",  "coords": [37512, 29498], "names": {"lo": "広場", "en": "Mezumis Square"}},
   {"id": "sluqecu_righeju_righeju02_04_09", "rank": "b", "icon": "school", "coords": [37158, 26622], "names": {"lo": "旧津中校", "en": "Righeju High School"}},
   {"id": "sluqecu_righeju_righeju02_04_10", "rank": "b", "icon": "school", "coords": [37128, 26766], "names": {"lo": "緑昔小校", "en": "Slurigher Elementary School"}},
   {"id": "sluqecu_righeju_righeju02_08_42", "rank": "d", "icon": "parking", "coords": [36668, 27074], "names": {"lo": "中日駐車塔", "en": "Cumyoji Parking Tower"}},
