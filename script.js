@@ -245,7 +245,6 @@ function renderMarkers() {
                 iconAnchor: iconAnchor
             });
 
-            // zIndexOffset 옵션을 추가해서 위계 설정
             const offset = zIndexRanks[loc.rank] || 0;
 
             L.marker(loc.coords, { 
@@ -256,30 +255,23 @@ function renderMarkers() {
     });
 }
 
-// 3. 이벤트 리스너: 줌이 끝날 때마다 호출
 map.on('zoomend', renderMarkers);
 
-// 4. 언어 변경 함수
 function changeLang(lang, btnElement) {
-    // 1. 모든 버튼에서 active 제거 및 현재 버튼에 추가
     document.querySelectorAll('.lang-group .control-btn').forEach(btn => btn.classList.remove('active'));
     if(btnElement) btnElement.classList.add('active');
 
-    // 2. body 태그의 언어 클래스 교체
     document.body.className = '';
     document.body.classList.add(`lang-${lang}`);
 
-    // 3. 현재 언어 변수 업데이트 및 마커 다시 그리기
     currentLang = lang;
     renderMarkers();
 }
 
-// 초기 로드 시 실행 (첫 접속은 로포나어이므로)
 document.addEventListener('DOMContentLoaded', () => {
     changeLang('lo', document.querySelector('.lang-group .control-btn.active'));
 });
 
-// 데이터 로드
 fetch('locations.json')
     .then(res => res.json())
     .then(data => {
@@ -287,22 +279,10 @@ fetch('locations.json')
         renderMarkers();
     });
 
-
-// 좌표 클립보드 복사
 map.on('click', function(e) {
-    if (!e.originalEvent.shiftKey) {
-        return;
-    }
-
+    if (!e.originalEvent.shiftKey) {return;}
     const y = Math.round(e.latlng.lat);
     const x = Math.round(e.latlng.lng);
-    
     const coordString = `[${y}, ${x}]`;
-    
-    navigator.clipboard.writeText(coordString).then(() => {
-        console.log('복사된 좌표:', coordString);
-        showToast(`좌표 ${coordString}가 복사되었습니다!`);
-    }).catch(err => {
-        console.error('복사 실패:', err);
-    });
+    navigator.clipboard.writeText(coordString)
 });

@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <style>
-        /* 1. 로컬 폰트 파일 등록 */
         @font-face {
             font-family: 'La';
             src: url('font/Pretendard-Regular.otf') format('opentype');
@@ -33,7 +32,6 @@
         body { margin: 0; padding: 0; }
         #map { width: 100vw; height: 100vh; }
 
-        /* 2. 지도 라벨에 폰트 적용 */
         .map-label {
             background: transparent;
             border: none;
@@ -65,7 +63,6 @@
             white-space: nowrap;
         }
 
-        /* 2-1. 아이콘 + 텍스트 가로 배치 (d, e 위계에서 icon이 지정된 경우) */
         .map-label-row {
             display: flex;
             align-items: center;
@@ -88,7 +85,6 @@
             display: block;
         }
         
-        /* UI 컨테이너 (오른쪽 상단) */
         #custom-controls {
             position: absolute;
             top: 20px;
@@ -96,11 +92,10 @@
             z-index: 1000;
             display: flex;
             flex-direction: column;
-            align-items: flex-end; /* 오른쪽 정렬 */
+            align-items: flex-end;
             gap: 10px;
         }
 
-        /* 언어 버튼 그룹 */
         .lang-group {
             display: flex;
             gap: 5px;
@@ -130,12 +125,10 @@
             color: #ffffff;
         }
 
-        /* 1. 로포나어  */
         body.lang-lo, .lang-lo .map-label {
             font-family: 'Hz', 'Rm', sans-serif;
         }
 
-        /* 2. 한국어 및 영어 */
         body.lang-en, .lang-en .map-label {
             font-family: 'La', sans-serif;
         }
