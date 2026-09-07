@@ -194,6 +194,7 @@ const ICON_LIBRARY = {
 
 const map = L.map('map', {
         crs: L.CRS.Simple,
+        zoomSnap: 0,
         minZoom: -4,
         maxZoom: 4,
         zoomControl: false,
