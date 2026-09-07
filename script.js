@@ -44,11 +44,25 @@ const ICON_LIBRARY = {
             <use href="icon/hospital.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
+    fire: {
+        color: '#EF5350',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/fire.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
     account: {
         color: '#BDBDBD',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/account.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    police: {
+        color: '#BDBDBD',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/police.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     atm: {
@@ -122,10 +136,24 @@ const ICON_LIBRARY = {
         </svg>`
     },
     restaurant: {
-        color: '#FFEE58',
+        color: '#FFA726',
         svg: `<svg viewBox="0 0 48 48" width="48" height="48">
             <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
             <use href="icon/restaurant.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    dining: {
+        color: '#FFA726',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/dining.svg" x="10" y="10" width="28" height="28" />
+        </svg>`
+    },
+    cafe: {
+        color: '#FFA726',
+        svg: `<svg viewBox="0 0 48 48" width="48" height="48">
+            <circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />
+            <use href="icon/cafe.svg" x="10" y="10" width="28" height="28" />
         </svg>`
     },
     parking: {
