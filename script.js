@@ -2,7 +2,7 @@ const bounds = [[0, 0], [65536, 65536]];
 const defaultColor = '#78909C';
 const zoomThresholds = {'m': -4, 'w': -3, 's': -2.5, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
 const zoomThresholdsDisappear = {'m': 0, 'w': 1, 's': 1.5, 'a': 2, 'b': 2.5, 'c': 3, 'd': 3.5, 'e': 4};
-const fontSizeThresholds = {'m': '4vh', 'w': '3vh', 's': '2.5vh', 'a': '2vh', 'b': '2vh', 'c': '2vh', 'd': '2vh', 'e': '2vh'};
+const fontSizeThresholds = {'m': '5.4vh', 'w': '3.6vh', 's': '2.4vh', 'a': '1.6vh', 'b': '1.6vh', 'c': '1.6vh', 'd': '1.6vh', 'e': '1.6vh'};
 const zIndexRanks = {'m':1000, 'w': 800, 's': 600, 'a': 400, 'b': 300, 'c': 200, 'd': 100, 'e': 0};
 const iconRanks = ['a', 'b', 'c', 'd', 'e'];
 
@@ -23,17 +23,17 @@ let ICON_LIBRARY = {};
 
 function buildIconSvg(def) {
     if (!def) {
-        return `<svg viewBox="0 0 48 48" width="48" height="48">
-            <circle cx="24" cy="24" r="20" fill="defaultColor" stroke="#222222" stroke-width="4" />
+        return `<svg viewBox="0 0 10 10" width="10" height="10">
+            <circle cx="5" cy="5" r="9" fill="defaultColor" stroke="#222222" stroke-width="1" />
         </svg>`;
     }
     const shapeMarkup = def.shape === 'rect'
-        ? `<rect x="4" y="4" width="40" height="40" rx="10" ry="10" fill="currentColor" stroke="#222222" stroke-width="4" />`
-        : `<circle cx="24" cy="24" r="20" fill="currentColor" stroke="#222222" stroke-width="4" />`;
+        ? `<rect x="1" y="1" width="8" height="8" rx="2" ry="2" fill="currentColor" stroke="#222222" stroke-width="1" />`
+        : `<circle cx="5" cy="5" r="4" fill="currentColor" stroke="#222222" stroke-width="1" />`;
 
-    return `<svg viewBox="0 0 48 48" width="48" height="48">
+    return `<svg viewBox="0 0 10 10" width="10" height="10">
         ${shapeMarkup}
-        <use href="icon/${def.icon}" x="10" y="10" width="28" height="28" />
+        <use href="icon/${def.icon}" x="2" y="2" width="6" height="6" />
     </svg>`;
 }
 
@@ -52,16 +52,29 @@ function renderMarkers() {
                 const iconDef = ICON_LIBRARY[loc.icon];
                 const iconColor = iconDef ? iconDef.color : defaultColor;
                 const iconSvg = buildIconSvg(iconDef);
-                const iconPx = Math.round(parseFloat(fontSize) * window.innerHeight * 0.015);
+                const iconPx = Math.round(parseFloat(fontSize) * window.innerHeight / 50);
+                const isRect = iconDef && iconDef.shape === 'rect';
 
-                html = `
-                    <div class="map-label-row">
-                        <span class="map-icon" style="width:${iconPx}px; height:${iconPx}px; color:${iconColor};">${iconSvg}</span>
-                        <span class="map-label-text" style="font-size:${fontSize}; color:${iconColor};">${text}</span>
-                    </div>
-                `;
-                iconSize = [300, 40];
-                iconAnchor = [iconPx / 2, 20];
+                if (isRect) {
+                    html = `
+                        <div class="map-label-col">
+                            <span class="map-icon" style="width:${iconPx}px; height:${iconPx}px; color:${iconColor};">${iconSvg}</span>
+                            <span class="map-label-text" style="font-size:${fontSize}; color:${iconColor};">${text}</span>
+                        </div>
+                    `;
+                    const colWidth = Math.max(iconPx * 2, 200);
+                    iconSize = [colWidth, iconPx + 40];
+                    iconAnchor = [colWidth / 2, iconPx / 2];
+                } else {
+                    html = `
+                        <div class="map-label-row">
+                            <span class="map-icon" style="width:${iconPx}px; height:${iconPx}px; color:${iconColor};">${iconSvg}</span>
+                            <span class="map-label-text" style="font-size:${fontSize}; color:${iconColor};">${text}</span>
+                        </div>
+                    `;
+                    iconSize = [300, 40];
+                    iconAnchor = [iconPx / 2, 20];
+                }
             } else {
                 html = `<div style="font-size: ${fontSize}">${text}</div>`;
                 iconSize = [200, 40];

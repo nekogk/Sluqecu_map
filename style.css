@@ -30,26 +30,33 @@
             white-space: nowrap;
             text-align: center;
             text-shadow: 
-                0.25vh 0 0 #222222,
-                0.24vh 0.07vh 0 #222222,
-                0.20vh 0.15vh 0 #222222,
-                0.15vh 0.20vh 0 #222222,
-                0.07vh 0.24vh 0 #222222,
-                0 0.25vh 0 #222222,
-                -0.07vh 0.24vh 0 #222222,
-                -0.15vh 0.20vh 0 #222222,
-                -0.20vh 0.15vh 0 #222222,
-                -0.24vh 0.07vh 0 #222222,
-                -0.25vh 0 0 #222222,
-                -0.24vh -0.07vh 0 #222222,
-                -0.20vh -0.15vh 0 #222222,
-                -0.15vh -0.20vh 0 #222222,
-                -0.07vh -0.24vh 0 #222222,
-                0 -0.25vh 0 #222222,
-                0.07vh -0.24vh 0 #222222,
-                0.15vh -0.20vh 0 #222222,
-                0.20vh -0.15vh 0 #222222,
-                0.24vh -0.07vh 0 #222222;
+                0.325vh 0 0 #222222,
+                0.312vh 0.091vh 0 #222222,
+                0.260vh 0.195vh 0 #222222,
+                0.195vh 0.260vh 0 #222222,
+                0.125vh 0.300vh 0 #222222,
+                0.091vh 0.312vh 0 #222222,
+                0 0.325vh 0 #222222,
+                -0.091vh 0.312vh 0 #222222,
+                -0.125vh 0.300vh 0 #222222,
+                -0.195vh 0.260vh 0 #222222,
+                -0.260vh 0.195vh 0 #222222,
+                -0.300vh 0.125vh 0 #222222,
+                -0.312vh 0.091vh 0 #222222,
+                -0.325vh 0 0 #222222,
+                -0.312vh -0.091vh 0 #222222,
+                -0.300vh -0.125vh 0 #222222,
+                -0.260vh -0.195vh 0 #222222,
+                -0.195vh -0.260vh 0 #222222,
+                -0.125vh -0.300vh 0 #222222,
+                -0.091vh -0.312vh 0 #222222,
+                0 -0.325vh 0 #222222,
+                0.091vh -0.312vh 0 #222222,
+                0.125vh -0.300vh 0 #222222,
+                0.195vh -0.260vh 0 #222222,
+                0.260vh -0.195vh 0 #222222,
+                0.300vh -0.125vh 0 #222222,
+                0.312vh -0.091vh 0 #222222;
             white-space: nowrap;
         }
 
@@ -66,7 +73,21 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            margin-right: 4px;
+            margin-right: 0.2vh;
+        }
+
+        .map-label-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            text-align: center;
+        }
+
+        .map-label-col .map-icon {
+            margin-right: 0;
+            margin-bottom: 0;
         }
 
         .map-icon svg {
