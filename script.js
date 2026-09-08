@@ -10,14 +10,10 @@ const mapLayerDefs = [
     { key: 'metro', file: 'maps/metro.svg', zIndex: 900 },
     { key: 'station', file: 'maps/station.svg', zIndex: 800 },
     { key: 'railroad', file: 'maps/railroad.svg', zIndex: 700 },
-    { key: 'building', file: 'maps/building.svg', zIndex: 600 },
-    { key: 'street', file: 'maps/street.svg', zIndex: 500 },
-    { key: 'road', file: 'maps/road.svg', zIndex: 500 },
-    { key: 'alley', file: 'maps/alley.svg', zIndex: 500 },
-    { key: 'semi', file: 'maps/semi.svg', zIndex: 400 },
-    { key: 'walk', file: 'maps/walk.svg', zIndex: 300 },
-    { key: 'path', file: 'maps/path.svg', zIndex: 300 },
-    { key: 'landscape', file: 'maps/landscape.svg', zIndex: 100 },
+    { key: 'map04', file: 'maps/map04.svg', zIndex: 300 },
+    { key: 'map03', file: 'maps/map03.svg', zIndex: 300 },
+    { key: 'map02', file: 'maps/map02.svg', zIndex: 300 },
+    { key: 'map01', file: 'maps/map01.svg', zIndex: 100 },
 ];
 
 const map = L.map('map', {
@@ -32,11 +28,11 @@ const map = L.map('map', {
 
 let markerLayer = L.layerGroup().addTo(map);
 let currentLang = 'lo';
+let transitLayer = 0;
+let landLayer = 0;
 let locationData = [];
 let iconData = {};
 let mapLayers = {};
-let transitLayer = 'railroad';
-let landLayer = 'landscape';
 
 function buildIconSvg(def) {
     if (!def) {
@@ -130,38 +126,43 @@ function toggleLang(btnElement) {
 
 function toggleTransit(btnElement) {
     const isActive = btnElement.classList.toggle('active');
-    transitLayer = isActive ? 'metro' : 'railroad';
+    transitLayer = isActive ? 1 : 0;
     updateMapLayers();
 }
 
-function getVisibleLayersForZoom(zoom) {
-    if (zoom < -4) {
-        return ['street', 'landscape'];
-    } else if (zoom < -3) {
-        return ['street', 'road', 'walk', 'landscape'];
-    } else if (zoom < -2) {
-        return ['street', 'road', 'alley', 'walk', 'path', 'landscape'];
-    } else {
-        return ['station', 'building', 'street', 'road', 'alley', 'semi', 'walk', 'path', 'landscape'];
-    }
+function toggleLand(btnElement) {
+    const isActive = btnElement.classList.toggle('active');
+    landLayer = isActive ? 2 : 0;
+    updateMapLayers();
 }
 
+const bracketByZoom = zoom => {
+    if (zoom < -4) return 0;
+    if (zoom < -3) return 1;
+    if (zoom < -2) return 2;
+    return 3;
+};
+
+const mapKeys = [
+    ['Sluqecu_map04', 'Sluqecu_map03', 'Sluqecu_map02', 'Sluqecu_map01'],
+    ['Sluqecu_map08', 'Sluqecu_map07', 'Sluqecu_map06', 'Sluqecu_map05'],
+    ['Sluqecu_map12', 'Sluqecu_map11', 'Sluqecu_map10', 'Sluqecu_map09'],
+    ['Sluqecu_map16', 'Sluqecu_map15', 'Sluqecu_map14', 'Sluqecu_map13']
+];
+
+function getMapKey(zoom) {
+    return mapKeys[transitLayer + landLayer][bracketByZoom(zoom)];
+}
+
+let currentMapKey = 'Sluqecu_map01';
+let mapOverlay = L.imageOverlay(`maps/${currentMapKey}.svg`, bounds, { pane: 'mapPane' }).addTo(map);
+
 function updateMapLayers() {
-    const zoom = map.getZoom();
-    const visible = getVisibleLayersForZoom(zoom);
-    visible.push(transitLayer, landLayer);
+    const key = mapKeys[transitLayer + landLayer][bracketByZoom(map.getZoom())];
+    if (key === currentMapKey) return;
 
-    mapLayerDefs.forEach(def => {
-        const layer = mapLayers[def.key];
-        const isVisible = visible.includes(def.key);
-        const onMap = map.hasLayer(layer);
-
-        if (isVisible && !onMap) {
-            layer.addTo(map);
-        } else if (!isVisible && onMap) {
-            map.removeLayer(layer);
-        }
-    });
+    mapOverlay.setUrl(`maps/${key}.svg`); // 확장자는 실제 파일에 맞게
+    currentMapKey = key;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -191,7 +192,6 @@ updateMapLayers();
 
 map.fitBounds(bounds);
 map.setView([44000, 29000], 0);
-map.getPane('markerPane').style.zIndex = 1000;
 
 map.on('zoomend', updateMapLayers);
 map.on('zoomend', renderMarkers);
