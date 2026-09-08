@@ -18,7 +18,7 @@ const mapLayerDefs = [
 
 const map = L.map('map', {
     crs: L.CRS.Simple,
-    zoomSnap: 0.25,
+    zoomSnap: 0,
     minZoom: -5,
     maxZoom: 3,
     zoomControl: false,
