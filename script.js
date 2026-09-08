@@ -19,7 +19,7 @@ const map = L.map('map', {
 let markerLayer = L.layerGroup().addTo(map);
 let currentLang = 'lo';
 let locationData = [];
-let ICON_LIBRARY = {};
+let iconData = {};
 
 function buildIconSvg(def) {
     if (!def) {
@@ -33,7 +33,7 @@ function buildIconSvg(def) {
 
     return `<svg viewBox="0 0 24 24" width="24" height="24">
         ${shapeMarkup}
-        <use href="icon/${def.icon}" x="5" y="5" width="14" height="14" />
+        <use href="icons/${def.icon}" x="5" y="5" width="14" height="14" />
     </svg>`;
 }
 
@@ -49,7 +49,7 @@ function renderMarkers() {
             let html, iconSize, iconAnchor;
 
             if (loc.icon && iconRanks.includes(loc.rank)) {
-                const iconDef = ICON_LIBRARY[loc.icon];
+                const iconDef = iconData[loc.icon];
                 const iconColor = iconDef ? iconDef.color : defaultColor;
                 const iconSvg = buildIconSvg(iconDef);
                 const iconPx = Math.round(parseFloat(fontSize) * window.innerHeight / 50);
@@ -114,11 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 Promise.all([
-    fetch('locations.json').then(res => res.json()),
-    fetch('icons.json').then(res => res.json())
+    fetch('datas/location.json').then(res => res.json()),
+    fetch('datas/icon.json').then(res => res.json())
 ]).then(([locations, icons]) => {
     locationData = locations;
-    ICON_LIBRARY = icons;
+    iconData = icons;
     renderMarkers();
 });
 
