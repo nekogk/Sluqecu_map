@@ -1,25 +1,32 @@
 const bounds = [[0, 0], [65536, 65536]];
-const defaultColor = '#78909C';
-const zoomThresholds = {'w': -3, 's': -2.5, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
-const zoomThresholdsDisappear = {'w': 1, 's': 1.5, 'a': 2, 'b': 2.5, 'c': 3, 'd': 3.5, 'e': 4};
-const fontSizeThresholds = {'w': '3.6vh', 's': '2.4vh', 'a': '1.6vh', 'b': '1.6vh', 'c': '1.6vh', 'd': '1.6vh', 'e': '1.6vh'};
+const defaultColor = '#ffffff';
+const zoomThresholds = {'w': -4, 't': -3, 's': -2.5, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
+const zoomThresholdsDisappear = {'w': -1, 't': 0, 's': 0.5, 'a': 1, 'b': 1.5, 'c': 2, 'd': 2.5, 'e': 3};
+const fontSizeThresholds = {'w': '3.6vh', 't': '2.4vh', 's': '2.4vh', 'a': '1.6vh', 'b': '1.6vh', 'c': '1.6vh', 'd': '1.6vh', 'e': '1.6vh'};
 const zIndexRanks = {'w': 700, 's': 600, 'a': 500, 'b': 400, 'c': 300, 'd': 200, 'e': 100};
 const iconRanks = ['a', 'b', 'c', 'd', 'e'];
 
 const mapLayerDefs = [
-    { key: 'metro', file: 'maps/metro.svg', zIndex: 600 },
-    { key: 'building', file: 'maps/building.svg', zIndex: 500 },
-    { key: 'road', file: 'maps/road.svg', zIndex: 400 },
-    { key: 'alley', file: 'maps/alley.svg', zIndex: 300 },
-    { key: 'path', file: 'maps/path.svg', zIndex: 200 },
-    { key: 'base', file: 'maps/base.svg', zIndex: 100 },
+    { key: 'metro', file: 'maps/metro.svg', zIndex: 900 },
+    { key: 'station', file: 'maps/station.svg', zIndex: 800 },
+    { key: 'railroad', file: 'maps/railroad.svg', zIndex: 700 },
+    { key: 'building', file: 'maps/building.svg', zIndex: 600 },
+    { key: 'street', file: 'maps/street.svg', zIndex: 500 },
+    { key: 'road', file: 'maps/road.svg', zIndex: 500 },
+    { key: 'alley', file: 'maps/alley.svg', zIndex: 500 },
+    { key: 'semi', file: 'maps/semi.svg', zIndex: 400 },
+    { key: 'walk', file: 'maps/walk.svg', zIndex: 300 },
+    { key: 'path', file: 'maps/path.svg', zIndex: 300 },
+    { key: 'water', file: 'maps/water.svg', zIndex: 200 },
+    { key: 'zoning', file: 'maps/zoning.svg', zIndex: 100 },
+    { key: 'landscape', file: 'maps/landscape.svg', zIndex: 100 },
 ];
 
 const map = L.map('map', {
     crs: L.CRS.Simple,
     zoomSnap: 0,
-    minZoom: -4,
-    maxZoom: 4,
+    minZoom: -5,
+    maxZoom: 3,
     zoomControl: false,
     maxBounds: bounds,
     maxBoundsViscosity: 1.0
@@ -30,6 +37,8 @@ let currentLang = 'lo';
 let locationData = [];
 let iconData = {};
 let mapLayers = {};
+let transitLayer = 'railroad';
+let landLayer = 'landscape';
 
 function buildIconSvg(def) {
     if (!def) {
@@ -108,10 +117,7 @@ function renderMarkers() {
     });
 }
 
-function changeLang(lang, btnElement) {
-    document.querySelectorAll('.lang-group .control-btn').forEach(btn => btn.classList.remove('active'));
-    if(btnElement) btnElement.classList.add('active');
-
+function changeLang(lang) {
     document.body.className = '';
     document.body.classList.add(`lang-${lang}`);
 
@@ -119,19 +125,39 @@ function changeLang(lang, btnElement) {
     renderMarkers();
 }
 
+function toggleLang(btnElement) {
+    const isActive = btnElement.classList.toggle('active');
+    changeLang(isActive ? 'en' : 'lo');
+}
+
+function toggleTransit(btnElement) {
+    const isActive = btnElement.classList.toggle('active');
+    transitLayer = isActive ? 'metro' : 'railroad';
+    updateMapLayers();
+}
+
+function toggleLand(btnElement) {
+    const isActive = btnElement.classList.toggle('active');
+    landLayer = isActive ? 'zoning' : 'landscape';
+    updateMapLayers();
+}
+
 function getVisibleLayersForZoom(zoom) {
-    if (zoom < -3) {
-        return ['road', 'base'];
+    if (zoom < -4) {
+        return ['street', 'water'];
+    } else if (zoom < -3) {
+        return ['street', 'road', 'walk', 'water'];
     } else if (zoom < -2) {
-        return ['metro', 'road', 'alley', 'base'];
+        return ['street', 'road', 'alley', 'walk', 'path', 'water'];
     } else {
-        return ['metro', 'building', 'road', 'alley', 'path', 'base'];
+        return ['station', 'building', 'street', 'road', 'alley', 'semi', 'walk', 'path', 'water'];
     }
 }
 
 function updateMapLayers() {
     const zoom = map.getZoom();
     const visible = getVisibleLayersForZoom(zoom);
+    visible.push(transitLayer, landLayer);
 
     mapLayerDefs.forEach(def => {
         const pane = map.getPane(`${def.key}Pane`);
@@ -142,7 +168,7 @@ function updateMapLayers() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    changeLang('lo', document.querySelector('.lang-group .control-btn.active'));
+    changeLang('lo');
 });
 
 Promise.all([
@@ -168,7 +194,7 @@ updateMapLayers();
 
 map.fitBounds(bounds);
 map.setView([44000, 29000], 0);
-map.getPane('markerPane').style.zIndex = 700;
+map.getPane('markerPane').style.zIndex = 1000;
 
 map.on('zoomend', updateMapLayers);
 map.on('zoomend', renderMarkers);

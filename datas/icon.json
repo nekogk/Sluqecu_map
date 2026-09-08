@@ -20,7 +20,7 @@
   "dining": {"color": "#FFA726", "shape": "circle", "icon": "dining.svg"},
   "cafe": {"color": "#FFA726", "shape": "circle", "icon": "cafe.svg"},
   "parking": {"color": "#42A5F5", "shape": "circle", "icon": "parking.svg"},
-  "star": {"color": "#7E57C2", "shape": "circle", "icon": "star.svg"},
-  "castle": {"color": "#7E57C2", "shape": "circle", "icon": "castle.svg"},
-  "temple": {"color": "#7E57C2", "shape": "circle", "icon": "temple.svg"}
+  "star": {"color": "#AB47BC", "shape": "circle", "icon": "star.svg"},
+  "castle": {"color": "#AB47BC", "shape": "circle", "icon": "castle.svg"},
+  "temple": {"color": "#AB47BC", "shape": "circle", "icon": "temple.svg"}
 }
