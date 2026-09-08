@@ -6,16 +6,6 @@ const fontSizeThresholds = {'w': '3.6vh', 't': '2.4vh', 's': '2.4vh', 'a': '1.6v
 const zIndexRanks = {'w': 700, 's': 600, 'a': 500, 'b': 400, 'c': 300, 'd': 200, 'e': 100};
 const iconRanks = ['a', 'b', 'c', 'd', 'e'];
 
-const mapLayerDefs = [
-    { key: 'metro', file: 'maps/metro.svg', zIndex: 900 },
-    { key: 'station', file: 'maps/station.svg', zIndex: 800 },
-    { key: 'railroad', file: 'maps/railroad.svg', zIndex: 700 },
-    { key: 'map04', file: 'maps/map04.svg', zIndex: 300 },
-    { key: 'map03', file: 'maps/map03.svg', zIndex: 300 },
-    { key: 'map02', file: 'maps/map02.svg', zIndex: 300 },
-    { key: 'map01', file: 'maps/map01.svg', zIndex: 100 },
-];
-
 const map = L.map('map', {
     crs: L.CRS.Simple,
     zoomSnap: 0,
@@ -46,6 +36,7 @@ let markerLayer = L.layerGroup().addTo(map);
 let currentLang = 'lo';
 let transitLayer = 0;
 let landLayer = 0;
+let mapLayerDefs = [];
 let locationData = [];
 let iconData = {};
 let mapLayers = {};
