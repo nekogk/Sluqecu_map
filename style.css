@@ -110,23 +110,19 @@ body { margin: 0; padding: 0; }
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px) saturate(160%);
     -webkit-backdrop-filter: blur(12px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     color: #ffffff;
     padding: 1vh 2vh;
     border-radius: 4vh;
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .control-btn:hover {
-    background: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .control-btn.active {
-    background: rgba(255, 255, 255, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    color: #ffffff;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 body.lang-lo, .lang-lo .map-label {

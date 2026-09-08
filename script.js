@@ -3,8 +3,17 @@ const defaultColor = '#78909C';
 const zoomThresholds = {'w': -3, 's': -2.5, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
 const zoomThresholdsDisappear = {'w': 1, 's': 1.5, 'a': 2, 'b': 2.5, 'c': 3, 'd': 3.5, 'e': 4};
 const fontSizeThresholds = {'w': '3.6vh', 's': '2.4vh', 'a': '1.6vh', 'b': '1.6vh', 'c': '1.6vh', 'd': '1.6vh', 'e': '1.6vh'};
-const zIndexRanks = {'w': 1000, 's': 700, 'a': 400, 'b': 300, 'c': 200, 'd': 100, 'e': 0};
+const zIndexRanks = {'w': 700, 's': 600, 'a': 500, 'b': 400, 'c': 300, 'd': 200, 'e': 100};
 const iconRanks = ['a', 'b', 'c', 'd', 'e'];
+
+const mapLayerDefs = [
+    { key: 'metro', file: 'maps/metro.svg', zIndex: 600 },
+    { key: 'building', file: 'maps/building.svg', zIndex: 500 },
+    { key: 'road', file: 'maps/road.svg', zIndex: 400 },
+    { key: 'alley', file: 'maps/alley.svg', zIndex: 300 },
+    { key: 'path', file: 'maps/path.svg', zIndex: 200 },
+    { key: 'base', file: 'maps/base.svg', zIndex: 100 },
+];
 
 const map = L.map('map', {
     crs: L.CRS.Simple,
@@ -20,6 +29,7 @@ let markerLayer = L.layerGroup().addTo(map);
 let currentLang = 'lo';
 let locationData = [];
 let iconData = {};
+let mapLayers = {};
 
 function buildIconSvg(def) {
     if (!def) {
@@ -109,6 +119,28 @@ function changeLang(lang, btnElement) {
     renderMarkers();
 }
 
+function getVisibleLayersForZoom(zoom) {
+    if (zoom < -3) {
+        return ['road', 'base'];
+    } else if (zoom < -2) {
+        return ['metro', 'road', 'alley', 'base'];
+    } else {
+        return ['metro', 'building', 'road', 'alley', 'path', 'base'];
+    }
+}
+
+function updateMapLayers() {
+    const zoom = map.getZoom();
+    const visible = getVisibleLayersForZoom(zoom);
+
+    mapLayerDefs.forEach(def => {
+        const pane = map.getPane(`${def.key}Pane`);
+        const isVisible = visible.includes(def.key);
+        pane.style.opacity = isVisible ? '1' : '0';
+        pane.style.pointerEvents = isVisible ? 'auto' : 'none';
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     changeLang('lo', document.querySelector('.lang-group .control-btn.active'));
 });
@@ -122,10 +154,23 @@ Promise.all([
     renderMarkers();
 });
 
-L.imageOverlay('Sluqecu_map.svg', bounds).addTo(map);
+mapLayerDefs.forEach(def => {
+    const paneName = `${def.key}Pane`;
+    map.createPane(paneName);
+    const pane = map.getPane(paneName);
+    pane.style.zIndex = def.zIndex;
+    pane.classList.add('map-svg-pane');
+
+    mapLayers[def.key] = L.imageOverlay(def.file, bounds, { pane: paneName }).addTo(map);
+});
+
+updateMapLayers();
+
 map.fitBounds(bounds);
 map.setView([44000, 29000], 0);
+map.getPane('markerPane').style.zIndex = 700;
 
+map.on('zoomend', updateMapLayers);
 map.on('zoomend', renderMarkers);
 
 map.on('click', function(e) {
