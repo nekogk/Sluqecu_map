@@ -162,12 +162,6 @@ function updateMapLayers() {
 
     mapOverlay.setUrl(`maps/${key}.svg`);
     currentMapKey = key;
-
-    const pane = map.getPane('mapPane');
-    pane.style.opacity = '0.999999';
-    requestAnimationFrame(() => {
-        pane.style.opacity = '1';
-    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
