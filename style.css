@@ -112,7 +112,6 @@ body { margin: 0; padding: 0; }
     height: 5vh;
     border-radius: 50%;
     touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
 }
 
 .toggle-group {
