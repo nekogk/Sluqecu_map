@@ -26,6 +26,22 @@ const map = L.map('map', {
     maxBoundsViscosity: 1.0
 });
 
+const bracketByZoom = zoom => {
+    if (zoom < -4) return 0;
+    if (zoom < -3) return 1;
+    if (zoom < -2) return 2;
+    return 3;
+};
+
+const mapKeys = [
+    ['Sluqecu_map04', 'Sluqecu_map03', 'Sluqecu_map02', 'Sluqecu_map01'],
+    ['Sluqecu_map08', 'Sluqecu_map07', 'Sluqecu_map06', 'Sluqecu_map05'],
+    ['Sluqecu_map12', 'Sluqecu_map11', 'Sluqecu_map10', 'Sluqecu_map09'],
+    ['Sluqecu_map16', 'Sluqecu_map15', 'Sluqecu_map14', 'Sluqecu_map13']
+];
+
+let currentMapKey = 'Sluqecu_map01';
+let mapOverlay = L.imageOverlay(`maps/${currentMapKey}.svg`, bounds, { pane: 'mapPane' }).addTo(map);
 let markerLayer = L.layerGroup().addTo(map);
 let currentLang = 'lo';
 let transitLayer = 0;
@@ -136,32 +152,15 @@ function toggleLand(btnElement) {
     updateMapLayers();
 }
 
-const bracketByZoom = zoom => {
-    if (zoom < -4) return 0;
-    if (zoom < -3) return 1;
-    if (zoom < -2) return 2;
-    return 3;
-};
-
-const mapKeys = [
-    ['Sluqecu_map04', 'Sluqecu_map03', 'Sluqecu_map02', 'Sluqecu_map01'],
-    ['Sluqecu_map08', 'Sluqecu_map07', 'Sluqecu_map06', 'Sluqecu_map05'],
-    ['Sluqecu_map12', 'Sluqecu_map11', 'Sluqecu_map10', 'Sluqecu_map09'],
-    ['Sluqecu_map16', 'Sluqecu_map15', 'Sluqecu_map14', 'Sluqecu_map13']
-];
-
 function getMapKey(zoom) {
     return mapKeys[transitLayer + landLayer][bracketByZoom(zoom)];
 }
-
-let currentMapKey = 'Sluqecu_map01';
-let mapOverlay = L.imageOverlay(`maps/${currentMapKey}.svg`, bounds, { pane: 'mapPane' }).addTo(map);
 
 function updateMapLayers() {
     const key = mapKeys[transitLayer + landLayer][bracketByZoom(map.getZoom())];
     if (key === currentMapKey) return;
 
-    mapOverlay.setUrl(`maps/${key}.svg`); // 확장자는 실제 파일에 맞게
+    mapOverlay.setUrl(`maps/${key}.svg`);
     currentMapKey = key;
 }
 
