@@ -17,14 +17,12 @@ const mapLayerDefs = [
     { key: 'semi', file: 'maps/semi.svg', zIndex: 400 },
     { key: 'walk', file: 'maps/walk.svg', zIndex: 300 },
     { key: 'path', file: 'maps/path.svg', zIndex: 300 },
-    { key: 'water', file: 'maps/water.svg', zIndex: 200 },
-    { key: 'zoning', file: 'maps/zoning.svg', zIndex: 100 },
     { key: 'landscape', file: 'maps/landscape.svg', zIndex: 100 },
 ];
 
 const map = L.map('map', {
     crs: L.CRS.Simple,
-    zoomSnap: 0,
+    zoomSnap: 0.25,
     minZoom: -5,
     maxZoom: 3,
     zoomControl: false,
@@ -136,21 +134,15 @@ function toggleTransit(btnElement) {
     updateMapLayers();
 }
 
-function toggleLand(btnElement) {
-    const isActive = btnElement.classList.toggle('active');
-    landLayer = isActive ? 'zoning' : 'landscape';
-    updateMapLayers();
-}
-
 function getVisibleLayersForZoom(zoom) {
     if (zoom < -4) {
-        return ['street', 'water'];
+        return ['street', 'landscape'];
     } else if (zoom < -3) {
-        return ['street', 'road', 'walk', 'water'];
+        return ['street', 'road', 'walk', 'landscape'];
     } else if (zoom < -2) {
-        return ['street', 'road', 'alley', 'walk', 'path', 'water'];
+        return ['street', 'road', 'alley', 'walk', 'path', 'landscape'];
     } else {
-        return ['station', 'building', 'street', 'road', 'alley', 'semi', 'walk', 'path', 'water'];
+        return ['station', 'building', 'street', 'road', 'alley', 'semi', 'walk', 'path', 'landscape'];
     }
 }
 
@@ -160,10 +152,15 @@ function updateMapLayers() {
     visible.push(transitLayer, landLayer);
 
     mapLayerDefs.forEach(def => {
-        const pane = map.getPane(`${def.key}Pane`);
+        const layer = mapLayers[def.key];
         const isVisible = visible.includes(def.key);
-        pane.style.opacity = isVisible ? '1' : '0';
-        pane.style.pointerEvents = isVisible ? 'auto' : 'none';
+        const onMap = map.hasLayer(layer);
+
+        if (isVisible && !onMap) {
+            layer.addTo(map);
+        } else if (!isVisible && onMap) {
+            map.removeLayer(layer);
+        }
     });
 }
 
@@ -187,7 +184,7 @@ mapLayerDefs.forEach(def => {
     pane.style.zIndex = def.zIndex;
     pane.classList.add('map-svg-pane');
 
-    mapLayers[def.key] = L.imageOverlay(def.file, bounds, { pane: paneName }).addTo(map);
+    mapLayers[def.key] = L.imageOverlay(def.file, bounds, { pane: paneName });
 });
 
 updateMapLayers();

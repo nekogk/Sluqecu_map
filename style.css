@@ -103,24 +103,20 @@ body { margin: 0; padding: 0; }
     gap: 10px;
 }
 
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+}
+
 .toggle-group {
     display: flex;
     flex-direction: row;
     gap: 10px;
-}
-
-.control-btn {
-    width: 5vh;
-    height: 5vh;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px) saturate(160%);
-    -webkit-backdrop-filter: blur(12px) saturate(160%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    cursor: pointer;
 }
 
 .lang-icon {
@@ -129,8 +125,13 @@ body { margin: 0; padding: 0; }
     pointer-events: none;
 }
 
-.control-btn:hover { background: rgba(255, 255, 255, 0.5); }
-.control-btn.active { background: rgba(255, 255, 255, 0.5); }
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.control-btn.active {
+    background: rgba(255, 255, 255, 0.5);
+}
 
 body.lang-lo, .lang-lo .map-label {
     font-family: 'Hz', 'Rm', sans-serif;
