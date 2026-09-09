@@ -181,7 +181,7 @@ mapLayerDefs.forEach(def => {
 updateMapLayers();
 
 map.fitBounds(bounds);
-map.setView([44000, 29000], 0);
+map.setView([44032, 28672], 0);
 
 map.on('zoomend', updateMapLayers);
 map.on('zoomend', renderMarkers);

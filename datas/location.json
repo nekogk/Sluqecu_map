@@ -235,7 +235,6 @@
 
   {"id": "sluqecu_recadesae", "rank": "w", "coords": [38112, 36539], "names": {"lo": "竜岩区", "en": "Recadesae Ward"}},
   {"id": "sluqecu_recadesae_cetu", "rank": "t", "coords": [38432, 36010], "names": {"lo": "速院街", "en": "Cetu Street"}},
-  {"id": "sluqecu_recadesae_cetu_03_01", "rank": "b", "icon": "park", "coords": [38604, 36082], "names": {"lo": "医大公園", "en": "Medical Park"}},
   {"id": "sluqecu_recadesae_cetu_03_32", "rank": "a", "icon": "hospital", "coords": [38784, 36165], "names": {"lo": "緑大附属病院", "en": "NSU Hospital"}},
   {"id": "sluqecu_recadesae_cetu_03_33", "rank": "d", "icon": "parking", "coords": [38712, 36252], "names": {"lo": "病院駐車棟", "en": "Hospital Parking Tower"}},
   {"id": "sluqecu_recadesae_cetu_07_01", "rank": "b", "icon": "park", "coords": [38157, 35869], "names": {"lo": "緑大公園", "en": "NSU Park"}},
