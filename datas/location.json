@@ -616,7 +616,7 @@
   {"id": "sluqecu_metro_1253", "rank": "b", "icon": "subway", "coords": [32341, 28090], "names": {"lo": "史公園駅", "en": "Historical Park Station"}},
   {"id": "sluqecu_metro_1255", "rank": "c", "icon": "subway", "coords": [31045, 27440], "names": {"lo": "長春駅", "en": "Sareriter Station"}},
   
-  {"id": "sluqecu_lrt_hr43", "rank": "c", "icon": "subway", "coords": [46204, 26256], "names": {"lo": "駅", "en": "Retero Station"}},
+  {"id": "sluqecu_lrt_hr43", "rank": "c", "icon": "subway", "coords": [46204, 26256], "names": {"lo": "従㦮駅", "en": "Regri Station"}},
   {"id": "sluqecu_lrt_hr44", "rank": "c", "icon": "subway", "coords": [46240, 26784], "names": {"lo": "重手駅", "en": "Daxilicec Station"}},
   {"id": "sluqecu_lrt_hr45", "rank": "c", "icon": "subway", "coords": [46186, 27419], "names": {"lo": "重手東駅", "en": "Daxilicec-Xigosha Station"}},
   {"id": "sluqecu_lrt_hr47", "rank": "c", "icon": "subway", "coords": [45767, 28186], "names": {"lo": "上地駅", "en": "Perechetu Station"}},
