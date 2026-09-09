@@ -625,7 +625,7 @@
   {"id": "sluqecu_lrt_hr53", "rank": "c", "icon": "subway", "coords": [42776, 29204], "names": {"lo": "頋恋手駅", "en": "Qarocec Station"}},
   {"id": "sluqecu_lrt_hr57", "rank": "b", "icon": "subway", "coords": [42213, 31513], "names": {"lo": "合間駅", "en": "Gobiker Station"}},
   {"id": "sluqecu_lrt_hr58", "rank": "c", "icon": "subway", "coords": [42033, 32247], "names": {"lo": "汽入駅", "en": "Sechiru Station"}},
-  {"id": "sluqecu_lrt_hr67", "rank": "c", "icon": "subway", "coords": [38254, 35491], "names": {"lo": "緑大後門駅", "en": "Sluqecu University West Gate Station"}},
+  {"id": "sluqecu_lrt_hr67", "rank": "c", "icon": "subway", "coords": [38254, 35491], "names": {"lo": "緑大後門駅", "en": "NSU West Gate Station"}},
   {"id": "sluqecu_lrt_hr68", "rank": "c", "icon": "subway", "coords": [37534, 35731], "names": {"lo": "発棒駅", "en": "Bokamufu Station"}},
 
   {"id": "sluqecu_lrt_nj39", "rank": "c", "icon": "subway", "coords": [46736, 30122], "names": {"lo": "遊読西駅", "en": "Cesezema-Bus Station"}},
