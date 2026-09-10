@@ -228,7 +228,15 @@
   {"id": "sluqecu_resexwa_rewereshu_01_03", "rank": "c", "icon": "star", "coords": [49133, 27918], "names": {"lo": "仮㒱銅像", "en": "Statue of Psudosomnia"}},
   {"id": "sluqecu_resexwa_rewereshu_01_16", "rank": "b", "icon": "square", "coords": [49226, 27732], "names": {"lo": "広場", "en": "Shose Square"}},
 
-  {"id": "sluqecu_pijizu", "rank": "w", "coords": [49000, 31000], "names": {"lo": "北畴区", "en": "Pijizu Ward"}},
+  {"id": "sluqecu_pijizu", "rank": "w", "coords": [48989, 31059], "names": {"lo": "北畴区", "en": "Pijizu Ward"}},
+  {"id": "sluqecu_pijizu_rujewho01", "rank": "s", "coords": [46521, 30882], "names": {"lo": "納熱一番街", "en": "Rujewho 1st Street"}},
+  {"id": "sluqecu_pijizu_rujewho02", "rank": "s", "coords": [47019, 31453], "names": {"lo": "納熱二番街", "en": "Rujewho 2nd Street"}},
+  {"id": "sluqecu_pijizu_rujewho03", "rank": "s", "coords": [46518, 32147], "names": {"lo": "納熱三番街", "en": "Rujewho 3st Street"}},
+  {"id": "sluqecu_pijizu_rujewho04", "rank": "s", "coords": [46433, 33254], "names": {"lo": "納熱四番街", "en": "Rujewho 4th Street"}},
+  {"id": "sluqecu_pijizu_cherema", "rank": "t", "coords": [45686, 31220], "names": {"lo": "氏亽万街", "en": "Cherema Street"}},
+  {"id": "sluqecu_pijizu_sanyako", "rank": "t", "coords": [45443, 33203], "names": {"lo": "島如街", "en": "Sanyako Street"}},
+  {"id": "sluqecu_pijizu_cherema_06_01", "rank": "a", "icon": "park", "coords": [45810, 30836], "names": {"lo": "公園", "en": "Rinodeya Park"}},
+
   {"id": "sluqecu_whohercache", "rank": "w", "coords": [47000, 34500], "names": {"lo": "秋疑区", "en": "Whohercache Ward"}},
   {"id": "sluqecu_refabyuxiko", "rank": "w", "coords": [41500, 35500], "names": {"lo": "仮得門区", "en": "Refabyuxiko Ward"}},
   {"id": "sluqecu_sasgri", "rank": "w", "coords": [39000, 32000], "names": {"lo": "司㦮区", "en": "Sasgri Ward"}},
