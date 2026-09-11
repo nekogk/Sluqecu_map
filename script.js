@@ -1,21 +1,12 @@
 const bounds = [[0, 0], [65536, 65536]];
 const defaultColor = '#ffffff';
 const mapName = 'Sluqecu_map';
+const map = L.map('map', {crs: L.CRS.Simple, zoomSnap: 0, minZoom: -5, maxZoom: 3, zoomControl: false, maxBounds: bounds, maxBoundsViscosity: 1.0});
+const iconRanks = ['a', 'b', 'c', 'd', 'e'];
 const zoomThresholds = {'w': -4, 't': -3, 's': -2.5, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
 const zoomThresholdsDisappear = {'w': -1, 't': 0, 's': 0.5, 'a': 1, 'b': 1.5, 'c': 2, 'd': 2.5, 'e': 3};
 const fontSizeThresholds = {'w': '3.6vh', 't': '2.4vh', 's': '2.4vh', 'a': '1.6vh', 'b': '1.6vh', 'c': '1.6vh', 'd': '1.6vh', 'e': '1.6vh'};
 const zIndexRanks = {'w': 700, 's': 600, 'a': 500, 'b': 400, 'c': 300, 'd': 200, 'e': 100};
-const iconRanks = ['a', 'b', 'c', 'd', 'e'];
-
-const map = L.map('map', {
-    crs: L.CRS.Simple,
-    zoomSnap: 0,
-    minZoom: -5,
-    maxZoom: 3,
-    zoomControl: false,
-    maxBounds: bounds,
-    maxBoundsViscosity: 1.0
-});
 
 let currentMapKey = mapName + '00';
 let mapOverlay = L.imageOverlay(`maps/${currentMapKey}.svg`, bounds, {pane: 'mapPane'}).addTo(map);
@@ -88,19 +79,10 @@ function renderMarkers() {
                 iconAnchor = [100, 10];
             }
 
-            const textIcon = L.divIcon({
-                className: 'map-label',
-                html: html,
-                iconSize: iconSize,
-                iconAnchor: iconAnchor
-            });
-
+            const textIcon = L.divIcon({className: 'map-label', html: html, iconSize: iconSize, iconAnchor: iconAnchor});
             const offset = zIndexRanks[loc.rank] || 0;
 
-            L.marker(loc.coords, { 
-                icon: textIcon,
-                zIndexOffset: offset 
-            }).addTo(markerLayer);
+            L.marker(loc.coords, {icon: textIcon, zIndexOffset: offset}).addTo(markerLayer);
         }
     });
 }
@@ -153,11 +135,4 @@ mapLayerDefs.forEach(def => {
 
 map.on('zoomend', updateMapLayers);
 map.on('zoomend', renderMarkers);
-
-map.on('click', function(e) {
-    if (!e.originalEvent.shiftKey) {return;}
-    const y = Math.round(e.latlng.lat);
-    const x = Math.round(e.latlng.lng);
-    const coordString = `[${y}, ${x}]`;
-    navigator.clipboard.writeText(coordString)
-});
+map.on('click', function(e) {if (e.originalEvent.shiftKey) navigator.clipboard.writeText(`[${Math.round(e.latlng.lat)}, ${Math.round(e.latlng.lng)}]`);});
