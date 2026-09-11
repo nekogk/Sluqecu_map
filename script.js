@@ -21,7 +21,7 @@ let mapLayers = {};
 
 function buildIconSvg(def) {
     if (!def) return;
-
+    
     const shapeMarkup = def.shape === 'rect'
         ? `<rect x="2" y="2" width="20" height="20" rx="6" ry="6" fill="currentColor" stroke="#222222" stroke-width="2" />`
         : `<circle cx="12" cy="12" r="10" fill="currentColor" stroke="#222222" stroke-width="2" />`;
