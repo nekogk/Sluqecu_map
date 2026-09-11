@@ -238,9 +238,22 @@
   {"id": "sluqecu_pijizu_sanyako", "rank": "t", "coords": [45443, 33203], "names": {"lo": "島如街", "en": "Sanyako Street"}},
   {"id": "sluqecu_pijizu_cherema_06_01", "rank": "a", "icon": "park", "coords": [45810, 30836], "names": {"lo": "公園", "en": "Rinodeya Park"}},
 
-  {"id": "sluqecu_whohercache", "rank": "w", "coords": [47000, 34500], "names": {"lo": "秋疑区", "en": "Whohercache Ward"}},
-  {"id": "sluqecu_refabyuxiko", "rank": "w", "coords": [41500, 35500], "names": {"lo": "仮得門区", "en": "Refabyuxiko Ward"}},
-  {"id": "sluqecu_sasgri", "rank": "w", "coords": [39000, 32000], "names": {"lo": "司㦮区", "en": "Sasgri Ward"}},
+  {"id": "sluqecu_whohercache", "rank": "w", "coords": [47296, 34431], "names": {"lo": "秋疑区", "en": "Whohercache Ward"}},
+  {"id": "sluqecu_whohercache_rizaseca03", "rank": "s", "coords": [44456, 34054], "names": {"lo": "昨産三番街", "en": "Rizaseca 3rd Street"}},
+  {"id": "sluqecu_whohercache_rizaseca04", "rank": "s", "coords": [43904, 34598], "names": {"lo": "昨産四番街", "en": "Rizaseca 4th Street"}},
+  {"id": "sluqecu_whohercache_dawhojizo01", "rank": "s", "coords": [43667, 35340], "names": {"lo": "赤命一番街", "en": "Dawhojizo 1st Street"}},
+  {"id": "sluqecu_whohercache_dawhojizo02", "rank": "s", "coords": [43570, 35952], "names": {"lo": "赤命二番街", "en": "Dawhojizo 2nd Street"}},
+  {"id": "sluqecu_whohercache_dawhojizo03", "rank": "s", "coords": [43485, 36490], "names": {"lo": "赤命三番街", "en": "Dawhojizo 3rd Street"}},
+  {"id": "sluqecu_whohercache_dawhojizo04", "rank": "s", "coords": [43431, 37048], "names": {"lo": "赤命四番街", "en": "Dawhojizo 4th Street"}},
+
+  {"id": "sluqecu_refabyuxiko", "rank": "w", "coords": [41571, 35805], "names": {"lo": "仮得門区", "en": "Refabyuxiko Ward"}},
+  {"id": "sluqecu_refabyuxiko_shixicache", "rank": "t", "coords": [42282, 36876], "names": {"lo": "恩原街", "en": "Shixicache Street"}},
+
+  {"id": "sluqecu_sasgri", "rank": "w", "coords": [39084, 32163], "names": {"lo": "司㦮区", "en": "Sasgri Ward"}},
+  {"id": "sluqecu_sasgri_nijere06", "rank": "s", "coords": [40288, 30809], "names": {"lo": "美琴六番街", "en": "Nijere 6th Street"}},
+  {"id": "sluqecu_sasgri_nijere07", "rank": "s", "coords": [40166, 31359], "names": {"lo": "美琴七番街", "en": "Nijere 7th Street"}},
+  {"id": "sluqecu_sasgri_cfasagher01", "rank": "s", "coords": [39951, 32103], "names": {"lo": "犯友二番街", "en": "Cfasagher 2nd Street"}},
+  {"id": "sluqecu_sasgri_risatube", "rank": "t", "coords": [38071, 33168], "names": {"lo": "年丘街", "en": "Risatube Street"}},
 
   {"id": "sluqecu_recadesae", "rank": "w", "coords": [38112, 36539], "names": {"lo": "竜岩区", "en": "Recadesae Ward"}},
   {"id": "sluqecu_recadesae_cetu", "rank": "t", "coords": [38432, 36010], "names": {"lo": "速院街", "en": "Cetu Street"}},
