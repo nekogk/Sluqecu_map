@@ -1,19 +1,19 @@
 @font-face {
-    font-family: 'La';
+    font-family: 'la';
     src: url('fonts/Pretendard-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Hz';
+    font-family: 'hz';
     src: url('fonts/NotoSansSC-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Rm';
+    font-family: 'rm';
     src: url('fonts/RusimezSans-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
@@ -28,7 +28,7 @@ body { margin: 0; padding: 0; }
     box-shadow: none;
     color: #ffffff;
     white-space: nowrap;
-    font-family: 'Rm', 'La', 'Hz', sans-serif; 
+    font-family: 'rm', 'la', 'hz', sans-serif; 
     text-align: center;
     text-shadow: 
         0.26vh 0 0 #222222,
@@ -87,30 +87,24 @@ body { margin: 0; padding: 0; }
 
 #custom-controls {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 1.6vh;
+    right: 1.6vh;
     z-index: 1000;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-end;
-    gap: 10px;
+    gap: 0.8vh;
 }
 
 .control-btn {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px) saturate(160%);
-    -webkit-backdrop-filter: blur(12px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    width: 5vh;
-    height: 5vh;
+    backdrop-filter: blur(0.26vh) saturate(100%);
+    -webkit-backdrop-filter: blur(0.26vh) saturate(100%);
+    border: 0.26vh solid rgba(255, 255, 255, 0.9);
+    width: 4.8vh;
+    height: 4.8vh;
     border-radius: 50%;
     touch-action: manipulation;
-}
-
-.toggle-group {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
 }
 
 .btn-icon {
