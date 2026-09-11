@@ -1,6 +1,6 @@
 const bounds = [[0, 0], [65536, 65536]];
 const defaultColor = '#ffffff';
-const mapName = 'Sluqecu_map';
+const mapName = 'sluqecu_map';
 const map = L.map('map', {crs: L.CRS.Simple, zoomSnap: 0, minZoom: -5, maxZoom: 3, zoomControl: false, maxBounds: bounds, maxBoundsViscosity: 1.0});
 const iconRanks = ['a', 'b', 'c', 'd', 'e'];
 const zoomThresholds = {'w': -4, 't': -3, 's': -2.5, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
