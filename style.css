@@ -62,14 +62,6 @@ body { margin: 0; padding: 0; }
     text-align: left;
 }
 
-.map-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-right: 0.26vh;
-}
-
 .map-label-col {
     display: flex;
     flex-direction: column;
@@ -79,9 +71,12 @@ body { margin: 0; padding: 0; }
     text-align: center;
 }
 
-.map-label-col .map-icon {
-    margin-right: 0;
-    margin-bottom: 0;
+.map-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 0.26vh;
 }
 
 .map-icon svg {
