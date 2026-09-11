@@ -28,6 +28,7 @@ body { margin: 0; padding: 0; }
     box-shadow: none;
     color: #ffffff;
     white-space: nowrap;
+    font-family: 'Rm', 'La', 'Hz', sans-serif; 
     text-align: center;
     text-shadow: 
         0.26vh 0 0 #222222,
@@ -125,6 +126,3 @@ body { margin: 0; padding: 0; }
 
 .control-btn:hover { background: rgba(255, 255, 255, 0.5); }
 .control-btn.active { background: rgba(255, 255, 255, 0.5); }
-
-body.lang-lo, .lang-lo .map-label { font-family: 'Hz', 'Rm', sans-serif; }
-body.lang-en, .lang-en .map-label { font-family: 'La', sans-serif; }
