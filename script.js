@@ -1,5 +1,6 @@
 const bounds = [[0, 0], [65536, 65536]];
 const defaultColor = '#ffffff';
+const mapName = 'Sluqecu_map';
 const zoomThresholds = {'w': -4, 't': -3, 's': -2.5, 'a': -2, 'b': -1.5, 'c': -1, 'd': -0.5, 'e': 0};
 const zoomThresholdsDisappear = {'w': -1, 't': 0, 's': 0.5, 'a': 1, 'b': 1.5, 'c': 2, 'd': 2.5, 'e': 3};
 const fontSizeThresholds = {'w': '3.6vh', 't': '2.4vh', 's': '2.4vh', 'a': '1.6vh', 'b': '1.6vh', 'c': '1.6vh', 'd': '1.6vh', 'e': '1.6vh'};
@@ -16,22 +17,8 @@ const map = L.map('map', {
     maxBoundsViscosity: 1.0
 });
 
-const bracketByZoom = zoom => {
-    if (zoom < -4) return 0;
-    if (zoom < -3) return 1;
-    if (zoom < -2) return 2;
-    return 3;
-};
-
-const mapKeys = [
-    ['Sluqecu_map04', 'Sluqecu_map03', 'Sluqecu_map02', 'Sluqecu_map01'],
-    ['Sluqecu_map08', 'Sluqecu_map07', 'Sluqecu_map06', 'Sluqecu_map05'],
-    ['Sluqecu_map12', 'Sluqecu_map11', 'Sluqecu_map10', 'Sluqecu_map09'],
-    ['Sluqecu_map16', 'Sluqecu_map15', 'Sluqecu_map14', 'Sluqecu_map13']
-];
-
-let currentMapKey = 'Sluqecu_map01';
-let mapOverlay = L.imageOverlay(`maps/${currentMapKey}.svg`, bounds, { pane: 'mapPane' }).addTo(map);
+let currentMapKey = 'Sluqecu_map00';
+let mapOverlay = L.imageOverlay(`maps/${currentMapKey}.svg`, bounds, {pane: 'mapPane'}).addTo(map);
 let markerLayer = L.layerGroup().addTo(map);
 let currentLang = 'lo';
 let transitLayer = 0;
@@ -139,16 +126,12 @@ function toggleTransit(btnElement) {
 
 function toggleLand(btnElement) {
     const isActive = btnElement.classList.toggle('active');
-    landLayer = isActive ? 2 : 0;
+    landLayer = isActive ? 1 : 0;
     updateMapLayers();
 }
 
-function getMapKey(zoom) {
-    return mapKeys[transitLayer + landLayer][bracketByZoom(zoom)];
-}
-
 function updateMapLayers() {
-    const key = mapKeys[transitLayer + landLayer][bracketByZoom(map.getZoom())];
+    const key = mapName + String((map.getZoom() < -2) + transitLayer * 2 + landLayer * 4).padStart(2, '0');
     if (key === currentMapKey) return;
 
     mapOverlay.setUrl(`maps/${key}.svg`);
@@ -166,22 +149,20 @@ Promise.all([
     locationData = locations;
     iconData = icons;
     renderMarkers();
+    updateMapLayers();
+    map.fitBounds(bounds);
+    map.setView([44032, 28672], 0);
 });
 
 mapLayerDefs.forEach(def => {
     const paneName = `${def.key}Pane`;
-    map.createPane(paneName);
     const pane = map.getPane(paneName);
+    map.createPane(paneName);
     pane.style.zIndex = def.zIndex;
     pane.classList.add('map-svg-pane');
 
     mapLayers[def.key] = L.imageOverlay(def.file, bounds, { pane: paneName });
 });
-
-updateMapLayers();
-
-map.fitBounds(bounds);
-map.setView([44032, 28672], 0);
 
 map.on('zoomend', updateMapLayers);
 map.on('zoomend', renderMarkers);
