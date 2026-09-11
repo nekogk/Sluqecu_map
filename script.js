@@ -17,10 +17,10 @@ const map = L.map('map', {
     maxBoundsViscosity: 1.0
 });
 
-let currentMapKey = 'Sluqecu_map00';
+let currentMapKey = mapName + '00';
 let mapOverlay = L.imageOverlay(`maps/${currentMapKey}.svg`, bounds, {pane: 'mapPane'}).addTo(map);
 let markerLayer = L.layerGroup().addTo(map);
-let currentLang = 'lo';
+let currentLang = 'ro';
 let transitLayer = 0;
 let landLayer = 0;
 let mapLayerDefs = [];
@@ -105,17 +105,17 @@ function renderMarkers() {
     });
 }
 
-function changeLang(lang) {
-    document.body.className = '';
-    document.body.classList.add(`lang-${lang}`);
-
-    currentLang = lang;
-    renderMarkers();
+function updateMapLayers() {
+    const key = mapName + String((map.getZoom() < -2) + transitLayer * 2 + landLayer * 4).padStart(2, '0');
+    if (key === currentMapKey) return;
+    mapOverlay.setUrl(`maps/${key}.svg`);
+    currentMapKey = key;
 }
 
 function toggleLang(btnElement) {
     const isActive = btnElement.classList.toggle('active');
-    changeLang(isActive ? 'en' : 'lo');
+    currentLang = isActive ? 'en' : 'ro';
+    renderMarkers();
 }
 
 function toggleTransit(btnElement) {
@@ -129,18 +129,6 @@ function toggleLand(btnElement) {
     landLayer = isActive ? 1 : 0;
     updateMapLayers();
 }
-
-function updateMapLayers() {
-    const key = mapName + String((map.getZoom() < -2) + transitLayer * 2 + landLayer * 4).padStart(2, '0');
-    if (key === currentMapKey) return;
-
-    mapOverlay.setUrl(`maps/${key}.svg`);
-    currentMapKey = key;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    changeLang('lo');
-});
 
 Promise.all([
     fetch('datas/location.json').then(res => res.json()),
@@ -160,7 +148,6 @@ mapLayerDefs.forEach(def => {
     map.createPane(paneName);
     pane.style.zIndex = def.zIndex;
     pane.classList.add('map-svg-pane');
-
     mapLayers[def.key] = L.imageOverlay(def.file, bounds, { pane: paneName });
 });
 
